@@ -45,27 +45,30 @@ public class Datastore {
 
     datastore.put(messageEntity);
   }
-
+ 
   /**
-   * Gets messages posted by a specific user.
-   *
-   * @return a list of messages posted by the user, or empty list if user has never posted a
-   *     message. List is sorted by time descending.
+   * Gets messages based on a particular query and user (optional).
+   * 
+   * @return a list of messages based on the input query and user, empty list if there are no messages
+   * posted matching the query and user. If user is blank, then get messages from all users matching the query.
+   *  Output list is sorted by time, descending order.
    */
-  public List<Message> getMessages(String user) {
+  public List<Message> getMessagesByQuery(Query query, String user) {
     List<Message> messages = new ArrayList<>();
+    boolean useAnyMessage = false;
+    if(user.isEmpty()) {
+      useAnyMessage = true;
+    }
 
-    Query query =
-        new Query("Message")
-            .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
-            .addSort("timestamp", SortDirection.DESCENDING);
     PreparedQuery results = datastore.prepare(query);
-
     for (Entity entity : results.asIterable()) {
       try {
         String idString = entity.getKey().getName();
         UUID id = UUID.fromString(idString);
         String text = (String) entity.getProperty("text");
+        if(useAnyMessage) {
+          user = (String) entity.getProperty("user");
+        }
         long timestamp = (long) entity.getProperty("timestamp");
 
         Message message = new Message(id, user, text, timestamp);
@@ -76,7 +79,37 @@ public class Datastore {
         e.printStackTrace();
       }
     }
-
     return messages;
   }
+
+  /**
+   * Gets messages posted by a specific user.
+   *
+   * @return a list of messages posted by the user, or empty list if user has never posted a
+   *     message. List is sorted by time descending.
+   */
+  public List<Message> getMessages(String user) {
+
+    Query query =
+        new Query("Message")
+            .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
+            .addSort("timestamp", SortDirection.DESCENDING);
+
+    return getMessagesByQuery(query, user);
+  }
+  
+  /**
+   * Gets all messages posted.
+   *
+   * @return a list of messages currently stored, or empty list if there are none.
+   * List is sorted by time descending.
+   */
+  public List<Message> getAllMessages() {
+   
+    Query query = new Query("Message")
+      .addSort("timestamp", SortDirection.DESCENDING);
+    
+    return getMessagesByQuery(query, "");
+  }
+
 }
