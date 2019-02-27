@@ -77,7 +77,19 @@ public class Datastore {
         e.printStackTrace();
       }
     }
-
     return messages;
+  }
+
+  /** 
+   * Retrieves total number of messages ∀ users. 
+   * @return an int of the total number of messages ∀ users
+   */
+  public int getTotalMessageCount(){
+    Query query = new Query("Message");
+    PreparedQuery results = datastore.prepare(query);
+
+    //FIXME FetchOptions cannot be resolved error
+    //TODO Issue might be from lacking JS support. Verify existance of issue after JS implementation
+    return results.countEntities(FetchOptions.Builder.withLimit(1000));
   }
 }
