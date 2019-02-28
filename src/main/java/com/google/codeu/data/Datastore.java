@@ -45,7 +45,7 @@ public class Datastore {
 
     datastore.put(messageEntity);
   }
- 
+
   /**
    * Gets messages based on a particular query and user (optional).
    * 
@@ -55,10 +55,7 @@ public class Datastore {
    */
   public List<Message> getMessagesByQuery(Query query, String user) {
     List<Message> messages = new ArrayList<>();
-    boolean useAnyMessage = false;
-    if(user.isEmpty()) {
-      useAnyMessage = true;
-    }
+    boolean useAnyMessage = user.isEmpty();
 
     PreparedQuery results = datastore.prepare(query);
     for (Entity entity : results.asIterable()) {
