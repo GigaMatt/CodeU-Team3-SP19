@@ -16,6 +16,7 @@
 
 package com.google.codeu.data;
 
+import com.google.appengine.api.datastore.FetchOptions;   //needed for function w/ total message count 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -27,51 +28,49 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+
 /** Provides access to the data stored in Datastore. */
-public class Datastore {
+public class Datastore{
 
   private DatastoreService datastore;
 
-  public Datastore() {
+  public Datastore(){
     datastore = DatastoreServiceFactory.getDatastoreService();
   }
 
   /** Stores the Message in Datastore. */
-  public void storeMessage(Message message) {
-    Entity messageEntity = new Entity("Message", message.getId().toString());
-    messageEntity.setProperty("user", message.getUser());
-    messageEntity.setProperty("text", message.getText());
-    messageEntity.setProperty("timestamp", message.getTimestamp());
-    messageEntity.setProperty("recipient", message.getRecipient());
+  public void storeMessage(Message message){
+    Entity message_entity = new Entity("Message", message.getId().toString());
+    message_entity.setProperty("user", message.getUser());
+    message_entity.setProperty("text", message.getText());
+    message_entity.setProperty("timestamp", message.getTimestamp());
+    message_entity.setProperty("recipient", message.getRecipient());
 
-    datastore.put(messageEntity);
+    datastore.put(message_entity);
   }
 
   /**
    * Gets messages posted by a specific user.
-   *
-   * @return a list of messages posted by the user, or empty list if user has never posted a
-   *     message. List is sorted by time descending.
+   * @param user String identifying the user
+   * @return messages a list of messages posted by the user.
    */
-  public List<Message> getMessages(String user) {
+  public List<Message> getMessages(String user){
     List<Message> messages = new ArrayList<>();
 
-    Query query =
-        new Query("Message")
-            .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
-            .addSort("timestamp", SortDirection.DESCENDING);
+    Query query = new Query("Message").setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user)).addSort("timestamp", SortDirection.DESCENDING);
+    
     PreparedQuery results = datastore.prepare(query);
-
-    for (Entity entity : results.asIterable()) {
-      try {
+    for(Entity entity : results.asIterable()){
+      try{
         String idString = entity.getKey().getName();
         UUID id = UUID.fromString(idString);
-        String text = (String) entity.getProperty("text");
-        long timestamp = (long) entity.getProperty("timestamp");
-        String recipient = (String) entity.getProperty("recipient");
-        Message message = new Message(id, user, text, timestamp, recipient);
-        messages.add(message);
-      } catch (Exception e) {
+        String message_text = (String)entity.getProperty("text");
+        long timestamp = (long)entity.getProperty("timestamp");
+        String recipient = (String)entity.getProperty("recipient");
+        Message user_message = new Message(id, user, message_text, timestamp, recipient);
+        messages.add(user_message);
+      }
+      catch (Exception e){
         System.err.println("Error reading message.");
         System.err.println(entity.toString());
         e.printStackTrace();
@@ -82,14 +81,16 @@ public class Datastore {
 
   /** 
    * Retrieves total number of messages ∀ users. 
-   * @return an int of the total number of messages ∀ users
+   * @return messages the total number of messages ∀ users
    */
   public int getTotalMessageCount(){
     Query query = new Query("Message");
     PreparedQuery results = datastore.prepare(query);
-
-    //FIXME FetchOptions cannot be resolved error
-    //TODO Issue might be from lacking JS support. Verify existance of issue after JS implementation
     return results.countEntities(FetchOptions.Builder.withLimit(1000));
+    /**
+     * @MATT
+     * When working on pull reuqests, emails will be sent, and doing a push will send a notification to Drew about the pull request update
+     * With errros, run maven from cmd line and show error from there
+     */
   }
 }
