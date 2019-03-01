@@ -61,6 +61,7 @@ public class Datastore {
         .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
         .addSort("timestamp", SortDirection.DESCENDING);    
     PreparedQuery results = datastore.prepare(query);
+    
     for(Entity entity : results.asIterable()) {
       try {
         String idString = entity.getKey().getName();
