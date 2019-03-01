@@ -16,10 +16,10 @@
 
 package com.google.codeu.data;
 
-import com.google.appengine.api.datastore.FetchOptions;   //needed for function w/ total message count 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
@@ -28,9 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-
 /** Provides access to the data stored in Datastore. */
-public class Datastore{
+public class Datastore {
 
   private DatastoreService datastore;
 
@@ -54,14 +53,16 @@ public class Datastore{
    * @param user String identifying the user
    * @return messages a list of messages posted by the user.
    */
-  public List<Message> getMessages(String user){
+  public List<Message> getMessages(String user) {
     List<Message> messages = new ArrayList<>();
 
-    Query query = new Query("Message").setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user)).addSort("timestamp", SortDirection.DESCENDING);
-    
+    Query query =
+    new Query("Message")
+        .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
+        .addSort("timestamp", SortDirection.DESCENDING);    
     PreparedQuery results = datastore.prepare(query);
-    for(Entity entity : results.asIterable()){
-      try{
+    for(Entity entity : results.asIterable()) {
+      try {
         String idString = entity.getKey().getName();
         UUID id = UUID.fromString(idString);
         String message_text = (String)entity.getProperty("text");
@@ -70,7 +71,7 @@ public class Datastore{
         Message user_message = new Message(id, user, message_text, timestamp, recipient);
         messages.add(user_message);
       }
-      catch (Exception e){
+      catch (Exception e) {
         System.err.println("Error reading message.");
         System.err.println(entity.toString());
         e.printStackTrace();
@@ -83,14 +84,9 @@ public class Datastore{
    * Retrieves total number of messages ∀ users. 
    * @return messages the total number of messages ∀ users
    */
-  public int getTotalMessageCount(){
+  public int getTotalMessageCount() {
     Query query = new Query("Message");
     PreparedQuery results = datastore.prepare(query);
     return results.countEntities(FetchOptions.Builder.withLimit(1000));
-    /**
-     * @MATT
-     * When working on pull reuqests, emails will be sent, and doing a push will send a notification to Drew about the pull request update
-     * With errros, run maven from cmd line and show error from there
-     */
   }
 }
