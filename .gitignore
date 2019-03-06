@@ -15,3 +15,6 @@
 .factorypath
 log/
 target/
+
+# VS Code
+.vscode/
