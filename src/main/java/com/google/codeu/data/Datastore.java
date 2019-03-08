@@ -27,6 +27,8 @@ import com.google.appengine.api.datastore.Query.SortDirection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
 /** Provides access to the data stored in Datastore. */
 public class Datastore {
@@ -37,11 +39,17 @@ public class Datastore {
     datastore = DatastoreServiceFactory.getDatastoreService();
   }
 
+  /** Returns a cleaned version of the input text */
+  public String cleanedMessage(String text) {
+    String cleanText = Jsoup.clean(text, Whitelist.none()); // Currently removing HTML and converting to BBCode.
+    return cleanText; // TODO: BBCode insertion here, possibly prime-transformer via maven
+  } 
+
   /** Stores the Message in Datastore. */
   public void storeMessage(Message message){
     Entity message_entity = new Entity("Message", message.getId().toString());
     message_entity.setProperty("user", message.getUser());
-    message_entity.setProperty("text", message.getText());
+    message_entity.setProperty("text", cleanedMessage(message.getText()));
     message_entity.setProperty("timestamp", message.getTimestamp());
     message_entity.setProperty("recipient", message.getRecipient());
 
@@ -70,8 +78,9 @@ public class Datastore {
           user = (String) entity.getProperty("user");
         }
         long timestamp = (long) entity.getProperty("timestamp");
+        String recipient = (String) entity.getProperty("recipient"); // We don't necessarily care what this is, could be null
 
-        Message message = new Message(id, user, text, timestamp);
+        Message message = new Message(id, user, text, timestamp, recipient);
         messages.add(message);
       } catch (Exception e) {
         System.err.println("Error reading message.");
