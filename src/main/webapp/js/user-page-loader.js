@@ -43,6 +43,7 @@ function showMessageFormIfViewingSelf() {
           const messageForm = document.getElementById('message-form');
           messageForm.action = '/messages?recipient=' + parameterUsername; //this was added in the DM project
           messageForm.classList.remove('hidden');
+          document.getElementById('about-me-form').classList.remove('hidden');
         }
       });
 }
@@ -96,4 +97,21 @@ function buildUI() {
   setPageTitle();
   showMessageFormIfViewingSelf();
   fetchMessages();
+  fetchAboutMe();
+}
+
+/**This code uses the fetch() function to request the user's about data, and then adds it to the page. */
+function fetchAboutMe(){
+  const url = '/about?user=' + parameterUsername;
+  fetch(url).then((response) => {
+    return response.text();
+  }).then((aboutMe) => {
+    const aboutMeContainer = document.getElementById('about-me-container');
+    if(aboutMe == ''){
+      aboutMe = 'This user has not entered any information yet.';
+    }
+    
+    aboutMeContainer.innerHTML = aboutMe;
+
+  });
 }
