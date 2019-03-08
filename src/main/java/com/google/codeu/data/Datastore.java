@@ -56,22 +56,33 @@ public class Datastore {
    * posted matching the query and user. If user is blank, then get messages from all users matching the query.
    *  Output list is sorted by time, descending order.
    */
+
   public List<Message> getMessagesByQuery(Query query, String user) {
+
     List<Message> messages = new ArrayList<>();
     boolean useAnyMessage = user.isEmpty();
 
+
+    Query query =
+        new Query("Message")
+            .setFilter(new Query.FilterPredicate("recipient", FilterOperator.EQUAL, recipient))
+            .addSort("timestamp", SortDirection.DESCENDING);
+    
     PreparedQuery results = datastore.prepare(query);
     for (Entity entity : results.asIterable()) {
       try {
         String idString = entity.getKey().getName();
         UUID id = UUID.fromString(idString);
+        String user = (String) entity.getProperty("user");
         String text = (String) entity.getProperty("text");
         if(useAnyMessage) {
           user = (String) entity.getProperty("user");
         }
         long timestamp = (long) entity.getProperty("timestamp");
 
-        Message message = new Message(id, user, text, timestamp);
+        
+        Message message = new Message(id, user, text, timestamp, recipient);
+
         messages.add(message);
       } catch (Exception e) {
         System.err.println("Error reading message.");
