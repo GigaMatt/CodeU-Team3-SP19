@@ -14,11 +14,14 @@
  * limitations under the License.
  */
 
+
 /* Prevent the page from becoming too wide. */
 body {
   max-width: 600px;
 }
-
+nav{
+  border: 0px;
+}
 /* Remove bullet points from navigation bar. */
 nav ul {
   list-style-type: none;
@@ -29,4 +32,19 @@ nav ul {
 nav li {
   display: inline-block;
   margin-right: 10px
+  
+}
+
+.jumbotron{
+  background: rgb(236,232,127);
+  background: radial-gradient(circle, rgba(236,232,127,1) 26%, rgba(255,160,89,1) 100%);
+}
+.jumbotron h1{
+  color: black;
+  font-size: 50px;
+  font-weight: 200;
+}
+h2{
+  font-size: 20px;
+  font-weight: 200;
 }
