@@ -37,11 +37,18 @@ public class Datastore {
     datastore = DatastoreServiceFactory.getDatastoreService();
   }
 
+  /** Returns a cleaned version of the input text */
+  public String cleanedMessage(String text) {
+    String cleanText = Jsoup.clean(text, Whitelist.none()); // Currently removing HTML and converting to BBCode.
+    return cleanText; // TODO: BBCode insertion here, possibly prime-transformer via maven
+  }
+ 
+
   /** Stores the Message in Datastore. */
   public void storeMessage(Message message){
     Entity message_entity = new Entity("Message", message.getId().toString());
     message_entity.setProperty("user", message.getUser());
-    message_entity.setProperty("text", message.getText());
+    message_entity.setProperty("text", cleanedMessage(message.getText()));
     message_entity.setProperty("timestamp", message.getTimestamp());
     message_entity.setProperty("recipient", message.getRecipient());
 
