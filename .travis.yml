@@ -4,7 +4,7 @@ jdk:
   - oraclejdk8
 
 before_install:
-  - yard add prettier
+  - yarn add prettier
 
 script:
   - prettier --check src/main/webapp/js/*.js
