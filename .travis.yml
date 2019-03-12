@@ -3,5 +3,8 @@ language: java
 jdk:
   - oraclejdk8
 
+before_install:
+  - yard add prettier
+
 script:
-  - mvn test
+  - prettier --check src/main/webapp/js/*.js
