@@ -27,6 +27,11 @@ import com.google.appengine.api.datastore.Query.SortDirection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import org.kefirsf.bb.TextProcessor;
+import org.kefirsf.bb.BBProcessorFactory;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
+
 
 /** Provides access to the data stored in Datastore. */
 public class Datastore {
@@ -40,7 +45,8 @@ public class Datastore {
   /** Returns a cleaned version of the input text */
   public String cleanedMessage(String text) {
     String cleanText = Jsoup.clean(text, Whitelist.none()); // Currently removing HTML and converting to BBCode.
-    return cleanText; // TODO: BBCode insertion here, possibly prime-transformer via maven
+    TextProcessor processor = BBProcessorFactory.getInstance().create();
+    return processor.process(cleanText); // BBCode insertion here
   }
  
 
@@ -61,7 +67,7 @@ public class Datastore {
    * @param (opt) user String identifying the user
    * @return a list of messages based on the input query and user, empty list if there are no messages
    * posted matching the query and user. If user is blank, then get messages from all users matching the query.
-   *  Output list is sorted by time, descending order.
+   *  Output list is sorted by time, descending order. .. TODO, possibly just remove user and go the query filtering route
    */
 
   public List<Message> getMessagesByQuery(Query query, String user) {
@@ -69,18 +75,17 @@ public class Datastore {
     List<Message> messages = new ArrayList<>();
     boolean useAnyMessage = user.isEmpty();
 
-
-    Query query =
+    /*Query query =
         new Query("Message")
             .setFilter(new Query.FilterPredicate("recipient", FilterOperator.EQUAL, recipient))
             .addSort("timestamp", SortDirection.DESCENDING);
-    
+    */
     PreparedQuery results = datastore.prepare(query);
     for (Entity entity : results.asIterable()) {
       try {
         String idString = entity.getKey().getName();
         UUID id = UUID.fromString(idString);
-        String user = (String) entity.getProperty("user");
+        String recipient = (String) entity.getProperty("recipient");
         String text = (String) entity.getProperty("text");
         if(useAnyMessage) {
           user = (String) entity.getProperty("user");
