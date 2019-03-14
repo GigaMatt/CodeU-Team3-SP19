@@ -70,17 +70,39 @@ public class MessageServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+    String user, user_text, regex_string, replacement_string, images_replaced_text;
+
     UserService userService = UserServiceFactory.getUserService();
     if (!userService.isUserLoggedIn()) {
       response.sendRedirect("/index.html");
       return;
     }
 
-    String user = userService.getCurrentUser().getEmail();
-    String text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
+    user = userService.getCurrentUser().getEmail();
+    user_text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
+
+    regex_string= "(https?://\\S+\\.(png | jpg))";
+    //FIXME: Compiler refuses to accept this next line
+    //TODO: ADD THE FOLLOWING COMMENT TO APL NOTEBOOK for furture reference
+    //TODO: Add maven instructions and bash call from inside fish to APL notebook
+    /** 
+     * $1 provides characters inside the capturing group,
+     * which is passed into the replaceAll() function.
+     */
+
+    replacement_string = "<img src = \"$1\/>";
+    images_replaced_text = user_text.replaceAll(regex_string, replacement_string);
+
     String recipient = request.getParameter("recipient");
 
-    Message message = new Message(user, text, recipient);
+    /**
+     * TODO
+     *    Replaced  Message message = new Message(user, user_text, recipient);
+     *    With      Message message = new Message(user, images_replaced_text, recipient);
+     *    
+     *    Make sure we don't need the old message
+     */
+    Message message = new Message(user, images_replaced_text, recipient);
     datastore.storeMessage(message);
 
     response.sendRedirect("/user-page.html?user=" + recipient);
