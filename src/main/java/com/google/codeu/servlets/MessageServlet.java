@@ -80,17 +80,8 @@ public class MessageServlet extends HttpServlet {
 
     user = userService.getCurrentUser().getEmail();
     user_text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
-
     regex_string= "(https?://\\S+\\.(png | jpg))";
-    //FIXME: Compiler refuses to accept this next line
-    //TODO: ADD THE FOLLOWING COMMENT TO APL NOTEBOOK for furture reference
-    //TODO: Add maven instructions and bash call from inside fish to APL notebook
-    /** 
-     * $1 provides characters inside the capturing group,
-     * which is passed into the replaceAll() function.
-     */
-
-    replacement_string = "<img src = \"$1\/>";
+    replacement_string = "<img src=\"$1\" />";
     images_replaced_text = user_text.replaceAll(regex_string, replacement_string);
 
     String recipient = request.getParameter("recipient");
