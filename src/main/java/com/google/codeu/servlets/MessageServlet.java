@@ -80,7 +80,7 @@ public class MessageServlet extends HttpServlet {
 
     user = userService.getCurrentUser().getEmail();
     user_text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
-    regex_string= "(https?://\\S+\\.(png | jpg))";
+    regex_string= "(https?://\\S+\\.(png|jpg))";
     replacement_string = "<img src=\"$1\" />";
     images_replaced_text = user_text.replaceAll(regex_string, replacement_string);
 
