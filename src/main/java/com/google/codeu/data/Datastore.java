@@ -27,6 +27,11 @@ import com.google.appengine.api.datastore.Query.SortDirection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import org.kefirsf.bb.TextProcessor;
+import org.kefirsf.bb.BBProcessorFactory;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
+
 
 /** Provides access to the data stored in Datastore. */
 public class Datastore {
@@ -37,11 +42,19 @@ public class Datastore {
     datastore = DatastoreServiceFactory.getDatastoreService();
   }
 
+  /** Returns a cleaned version of the input text */
+  public String cleanedMessage(String text) {
+    String cleanText = Jsoup.clean(text, Whitelist.none()); // Currently removing HTML and converting to BBCode.
+    TextProcessor processor = BBProcessorFactory.getInstance().create();
+    return processor.process(cleanText); // BBCode insertion here
+  }
+ 
+
   /** Stores the Message in Datastore. */
   public void storeMessage(Message message){
     Entity message_entity = new Entity("Message", message.getId().toString());
     message_entity.setProperty("user", message.getUser());
-    message_entity.setProperty("text", message.getText());
+    message_entity.setProperty("text", cleanedMessage(message.getText()));
     message_entity.setProperty("timestamp", message.getTimestamp());
     message_entity.setProperty("recipient", message.getRecipient());
 
@@ -49,30 +62,41 @@ public class Datastore {
   }
 
   /**
-   * Gets messages posted by a specific user.
-   * @param user String identifying the user
-   * @return messages a list of messages posted by the user.
+   * Gets messages based on a particular query and user (optional).
+   * @param query Query object to filter messages
+   * @param (opt) user String identifying the user
+   * @return a list of messages based on the input query and user, empty list if there are no messages
+   * posted matching the query and user. If user is blank, then get messages from all users matching the query.
+   *  Output list is sorted by time, descending order. .. TODO, possibly just remove user and go the query filtering route
    */
-  public List<Message> getMessages(String user) {
-    List<Message> messages = new ArrayList<>();
 
-    Query query =
-    new Query("Message")
-        .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
-        .addSort("timestamp", SortDirection.DESCENDING);    
+  public List<Message> getMessagesByQuery(Query query, String user) {
+
+    List<Message> messages = new ArrayList<>();
+    boolean useAnyMessage = user.isEmpty();
+
+    /*Query query =
+        new Query("Message")
+            .setFilter(new Query.FilterPredicate("recipient", FilterOperator.EQUAL, recipient))
+            .addSort("timestamp", SortDirection.DESCENDING);
+    */
     PreparedQuery results = datastore.prepare(query);
-    
-    for(Entity entity : results.asIterable()) {
+    for (Entity entity : results.asIterable()) {
       try {
         String idString = entity.getKey().getName();
         UUID id = UUID.fromString(idString);
-        String message_text = (String)entity.getProperty("text");
-        long timestamp = (long)entity.getProperty("timestamp");
-        String recipient = (String)entity.getProperty("recipient");
-        Message user_message = new Message(id, user, message_text, timestamp, recipient);
-        messages.add(user_message);
-      }
-      catch (Exception e) {
+        String recipient = (String) entity.getProperty("recipient");
+        String text = (String) entity.getProperty("text");
+        if(useAnyMessage) {
+          user = (String) entity.getProperty("user");
+        }
+        long timestamp = (long) entity.getProperty("timestamp");
+
+        
+        Message message = new Message(id, user, text, timestamp, recipient);
+
+        messages.add(message);
+      } catch (Exception e) {
         System.err.println("Error reading message.");
         System.err.println(entity.toString());
         e.printStackTrace();
@@ -81,9 +105,39 @@ public class Datastore {
     return messages;
   }
 
+  /**
+   * Gets messages posted by a specific user.
+   * @param user String identifying a user
+   * @return a list of messages posted by the user, or empty list if user has never posted a
+   *     message. List is sorted by time descending.
+   */
+  public List<Message> getMessages(String user) {
+
+    Query query =
+        new Query("Message")
+            .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
+            .addSort("timestamp", SortDirection.DESCENDING);
+
+    return getMessagesByQuery(query, user);
+  }
+  
+  /**
+   * Gets all messages posted.
+   *
+   * @return a list of messages currently stored, or empty list if there are none.
+   * List is sorted by time descending.
+   */
+  public List<Message> getAllMessages() {
+   
+    Query query = new Query("Message")
+      .addSort("timestamp", SortDirection.DESCENDING);
+    
+    return getMessagesByQuery(query, "");
+  }
+
   /** 
-   * Retrieves total number of messages ∀ users. 
-   * @return messages the total number of messages ∀ users
+   * Retrieves total number of messages for all users. 
+   * @return messages the total number of messages for all users
    */
   public int getTotalMessageCount() {
     Query query = new Query("Message");
@@ -91,7 +145,7 @@ public class Datastore {
     return results.countEntities(FetchOptions.Builder.withLimit(1000));
   }
 
-    /** Stores the User in Datastore. */
+  /** Stores the User in Datastore. */
   public void storeUser(User user) {
     Entity userEntity = new Entity("User", user.getEmail());
     userEntity.setProperty("email", user.getEmail());
@@ -118,4 +172,5 @@ public class Datastore {
     
     return user;
   }
+
 }
