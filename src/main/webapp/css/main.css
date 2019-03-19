@@ -17,7 +17,8 @@
 
 /* Prevent the page from becoming too wide. */
 body {
-  max-width: 600px;
+  /*max-width: 600px;*/
+  font-family: 'Rubik', sans-serif;
 }
 nav{
   border: 0px;
@@ -32,19 +33,24 @@ nav ul {
 nav li {
   display: inline-block;
   margin-right: 10px
-  
 }
-
 .jumbotron{
-  background: rgb(236,232,127);
-  background: radial-gradient(circle, rgba(236,232,127,1) 26%, rgba(255,160,89,1) 100%);
+  background: rgb(240,240,240);
+  background: linear-gradient(90deg, rgba(240,240,240,1) 22%, rgba(121,152,176,1) 94%);
 }
 .jumbotron h1{
   color: black;
   font-size: 50px;
   font-weight: 200;
 }
+h1{
+  font-family: 'Gothic A1', sans-serif;
+}
 h2{
-  font-size: 20px;
+  font-family: 'Gothic A1', sans-serif;
+  font-size: 32px;
+  font-weight: 200;
+}
+h3,h4 {
   font-weight: 200;
 }
