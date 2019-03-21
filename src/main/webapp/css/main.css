@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 /* Prevent the page from becoming too wide. */
 body {
   /*max-width: 600px;*/
@@ -28,7 +26,6 @@ nav ul {
   list-style-type: none;
   padding-left: 0;
 }
-
 /* Keep navigation menu on one line. */
 nav li {
   display: inline-block;
@@ -40,17 +37,23 @@ nav li {
 }
 .jumbotron h1{
   color: black;
-  font-size: 50px;
-  font-weight: 200;
+  font-size: 55px;
+  font-weight: 100;
 }
 h1{
-  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Helvetica', sans-serif;
 }
 h2{
-  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Helvetica', sans-serif;
   font-size: 32px;
   font-weight: 200;
 }
 h3,h4 {
   font-weight: 200;
+}
+.vis{
+  background-color: rgb(179, 199, 214);
+}
+.vis img{
+  margin: 10px;
 }
