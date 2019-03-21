@@ -70,7 +70,7 @@ public class MessageServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-    String user, user_text, regex_string, replacement_string, images_replaced_text;
+    String user, user_text, regex_string, replacement_string, images_replaced_text, recipient;
 
     UserService userService = UserServiceFactory.getUserService();
     if (!userService.isUserLoggedIn()) {
@@ -80,21 +80,28 @@ public class MessageServlet extends HttpServlet {
 
     user = userService.getCurrentUser().getEmail();
     user_text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
-    regex_string= "(https?://\\S+\\.(png|jpg))";
+    regex_string = "(https?://\\S+\\.(png|jpg))";
     replacement_string = "<img src=\"$1\" />";
     images_replaced_text = user_text.replaceAll(regex_string, replacement_string);
 
-    String recipient = request.getParameter("recipient");
-
     /**
-     * TODO
-     *    Replaced  Message message = new Message(user, user_text, recipient);
-     *    With      Message message = new Message(user, images_replaced_text, recipient);
-     *    
-     *    Make sure we don't need the old message
-     */
-    Message message = new Message(user, images_replaced_text, recipient);
+     * KNOWN ISSUE: WHEN ATTEMPTING TO POST IMAGES, THE IMAGE NEVER POSTS
+     *              TO THE USER'S PAGE. THIS MIGHT BE A CONFICT WITH CODE
+     *              WRITTEN BY ALEX LAST WEEK
+     * 
+     * @ALEX:       ISSUE IS WITH THE NEXT 2-3 LINES OF CODE. SEND HELP PLS.
+     *              PLEASE HELP DEBUG.            */
+    recipient = request.getParameter("recipient");
+
+    Message message = new Message(user, images_replaced_text, recipient);//, recipient);
     datastore.storeMessage(message);
+    /**
+     * @Alex CodeU tutorial calls for 
+     *        Message message = new Message(user, images_replaced_text);
+     *        That is, only passing 2 arguments, but it wont run unless
+     *        we pass 3 arguments. Thoughts? Did you see any issues related
+     *        to this when creating the Message.java class?
+     */
 
     response.sendRedirect("/user-page.html?user=" + recipient);
   }
