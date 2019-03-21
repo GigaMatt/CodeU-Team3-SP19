@@ -80,6 +80,8 @@ public class MessageServlet extends HttpServlet {
 
     user = userService.getCurrentUser().getEmail();
     user_text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
+    recipient = request.getParameter("recipient");
+
     regex_string = "(https?://\\S+\\.(png|jpg))";
     replacement_string = "<img src=\"$1\" />";
     images_replaced_text = user_text.replaceAll(regex_string, replacement_string);
@@ -91,7 +93,6 @@ public class MessageServlet extends HttpServlet {
      * 
      * @ALEX:       ISSUE IS WITH THE NEXT 2-3 LINES OF CODE. SEND HELP PLS.
      *              PLEASE HELP DEBUG.            */
-    recipient = request.getParameter("recipient");
 
     Message message = new Message(user, images_replaced_text, recipient);//, recipient);
     datastore.storeMessage(message);
