@@ -20,6 +20,7 @@ body {
 }
 nav{
   border: 0px;
+  margin-bottom: 10px;
 }
 /* Remove bullet points from navigation bar. */
 nav ul {
@@ -39,6 +40,7 @@ nav li {
   color: black;
   font-size: 55px;
   font-weight: 100;
+  margin-top: 90px;
 }
 h1{
   font-family: 'Helvetica', sans-serif;
@@ -53,7 +55,4 @@ h3,h4 {
 }
 .vis{
   background-color: rgb(179, 199, 214);
-}
-.vis img{
-  margin: 10px;
 }

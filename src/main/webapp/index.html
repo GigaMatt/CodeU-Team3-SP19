@@ -14,28 +14,42 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CodeU 2019 Starter Project</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Rubik:300" rel="stylesheet">
-    <link rel="stylesheet" href="/css/main.css">
-    <script src="/js/navigation-loader.js"></script>
-  </head>
+<!doctype html>
+<html ⚡="">
+
+<head>
+  <meta charset="utf-8">
+  <title>AMP Bio Page</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <meta name="amp-google-client-id-api" content="googleanalytics">
+
+  <script async="" src="https://cdn.ampproject.org/v0.js"></script>
+
+  <style amp-boilerplate="">body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate="">body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+
+  <script custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js" async=""></script>
+  <script custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async=""></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Rubik:300" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/navigation-loader.js"></script>
+</head>
   <body onload="addLoginOrLogoutLinkToNavigation();">
-    <nav>
-      <ul id="navigation">
-        <li><a href="/">Home</a></li>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+              <a class="navbar-brand" href="#">CSTOTS</a>
+        </div>
+        <ul class="nav navbar-nav" id="navigation">
+        <li class="active"><a href="/">Home</a></li>
       </ul>
+      </div>
     </nav>
     <div class="jumbotron jumbotron-fluid text-center">
       <div class="container">
@@ -63,7 +77,7 @@ limitations under the License.
           <div class="col-sm-6">
             <div class ="row">
               <div class= "col-sm-6 text-center">
-                  <img src="pictures/mattBio.jpg" alt="Bio Picture" height="230" width="230" class="bioPic"/>
+                  <amp-img src="pictures/mattBio.jpg" alt="Bio Picture" height="230" width="230" class="bioPic"/>
               </div>
               <div class= "col-sm-6">
                   <h3>MATTHEW MONTOYA</h3>
@@ -75,7 +89,7 @@ limitations under the License.
           <div class="col-sm-6">
               <div class="row">
                 <div class= "col-sm-6 text-center">
-                  <img src="pictures/SarahBioPic.png" alt="Bio Picture" height="230" width="230" class="bioPic"/>
+                  <amp-img src="pictures/SarahBioPic.png" alt="Bio Picture" height="230" width="230" class="bioPic"/>
                 </div>
                 <div class= "col-sm-6">
                     <h3>SARAH CHITTY</h3>
@@ -90,7 +104,7 @@ limitations under the License.
           <div class="col-sm-6">
               <div class ="row">
                 <div class= "col-sm-6 text-center">
-                    <img src="pictures/robbieBioPic.png" alt="Bio Picture" height="230" width="230" class="bioPic"/>
+                    <amp-img src="pictures/robbieBioPic.png" alt="Bio Picture" height="230" width="230" class="bioPic"/>
                 </div>
                 <div class= "col-sm-6">
                     <h3>ROBBIE GONZALEZ GARZA</h3>
@@ -102,12 +116,13 @@ limitations under the License.
             <div class="col-sm-6">
                 <div class ="row">
                   <div class= "col-sm-6 text-center">
-                    <p>insert picture</p>
+                      <amp-img src="pictures/alexanderBio.png" alt="Bio Picture" height="230" width="230" class="bioPic"/>
                   </div>
                   <div class= "col-sm-6">
                       <h3>ALEXANDER O'KENNARD</h3>
                       <h4>STUDENT</h4>
-                      <p>insert bio</p>
+                      <p>Alex is a Junior in computer science at the University of Illinois Urbana-Champaign. He focuses mainly on low level/system programming and making automation related tools for his family, friends and community. 
+                          For CodeU, he works on Yelp API integration and miscellaneous Java tasks.</p>
                   </div>
                 </div>
             </div>
@@ -121,15 +136,15 @@ limitations under the License.
           <h4>We are trying to create an opportunity for the people looking to experience the inner city behind the conventional attractions.</h4>
           <div class="row">
             <div class="col-sm-4">
-              <img src="pictures/photo-camera.png" alt="plane" height="100" width="100" />
+              <div><amp-img src="pictures/photo-camera.png" alt="plane" height="100" width="100" /></div>
               <p>Want to avoid tourist traps?</p>
             </div>
             <div class="col-sm-4">
-              <img src="pictures/black-plane.png" alt="plane" height="100" width="100" />
+              <div><amp-img src="pictures/black-plane.png" alt="plane" height="100" width="100" /></div>
               <p>Travelers looking for what the "locals recommend"</p>
             </div>
             <div class="col-sm-4">
-              <img src="pictures/smartphone.png" alt="phone" height="100" width="100" />
+              <div><amp-img src="pictures/smartphone.png" alt="phone" height="100" width="100" /></div>
               <p>Looking to stay up to date with a fresh scene?</p>
             </div>
           </div>
