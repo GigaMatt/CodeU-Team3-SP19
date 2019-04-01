@@ -3,6 +3,7 @@ package com.google.codeu.servlets;
 import java.io.IOException;
 import java.util.List;
 import java.net.URISyntaxException; 
+import java.io.PrintWriter;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,15 +36,17 @@ public class MessageFeedServlet extends HttpServlet{
   public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException {
 
-    response.setContentType("application/json");
-  
+    response.setContentType("application/json; charset=UTF-8");
+    response.setCharacterEncoding("UTF-8"); 
     List<Message> messages = datastore.getAllMessages();
     Gson gson = new Gson();
     YelpQuery query = new YelpQuery();
     String json = "";
     try {
-      json = query.getQueryResponse(query.createQuery());//gson.toJson(messages);
+      json = query.createQuery();//gson.toJson(messages);
     } catch (URISyntaxException e) { response.getOutputStream().println("aaa");}
-    response.getOutputStream().println(json);
+    //response.getOutputStream().println(json);
+    PrintWriter out = response.getWriter();
+    out.println(json);
    }
 }
