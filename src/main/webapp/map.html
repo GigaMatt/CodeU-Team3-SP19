@@ -40,7 +40,7 @@
               lng: position.coords.longitude
             };
             map.setCenter(pos);
-            //call request function
+            request();
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -48,18 +48,18 @@
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
           var pos = { lat: 37.4219999, lng: -122.0862515}; //user input aqui eventualmente
-          //call request function
+          request();
         }
 
-        await sleep(10000);
+        service = new google.maps.places.PlacesService(map);
+      }
 
+      function request() {
         var request = {
           location: map.getCenter(),
-          radius: '5000',
-          type: ['restaurant']
+          radius: '2500',
+          type: ['ice cream']
         };
-
-        service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, callback);
       }
 
