@@ -2,6 +2,7 @@ package com.google.codeu.servlets;
 
 import java.io.IOException;
 import java.util.List;
+import java.net.URISyntaxException; 
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.codeu.data.Datastore;
 import com.google.codeu.data.Message;
 import com.google.gson.Gson;
+import com.google.codeu.api.YelpQuery;
+
 
 /**
  * Handles fetching all messages for the public feed.
@@ -36,8 +39,11 @@ public class MessageFeedServlet extends HttpServlet{
   
     List<Message> messages = datastore.getAllMessages();
     Gson gson = new Gson();
-    String json = gson.toJson(messages);
-
+    YelpQuery query = new YelpQuery();
+    String json = "";
+    try {
+      json = query.getQueryResponse(query.createQuery());//gson.toJson(messages);
+    } catch (URISyntaxException e) { response.getOutputStream().println("aaa");}
     response.getOutputStream().println(json);
    }
 }

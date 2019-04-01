@@ -1,3 +1,5 @@
+package com.google.codeu.api;
+
 import java.util.Map;
 import java.util.HashMap;
 
@@ -19,20 +21,34 @@ import org.apache.commons.io.IOUtils;
 
 import com.google.gson.Gson;
 
+
 public class YelpQuery {
   private String apiKey;
-  
+  private Map<String, String> params;
+
   public YelpQuery() throws IOException {
-    this.apiKey = readFile("api.key");
+    this.apiKey = "nHhrlF_fSJVeSago5RBBPT4Pm_My-QczgCQl7f1d0jMaicWX4eHG6RefrcuAn_HhXRp3sm-c1DR7M-iK7g1M7HCMklsQPQB4KJvh5w0qzv-T6dIDNifo_mxtam-YXHYx";//readFile("api.key");
+    this.params = new HashMap<String, String>() {{ 
+      put("location", "Chicago");
+      put("term", "ice cream");
+    }};
   }
+ 
+  public YelpQuery(String apiKey, HashMap<String, String> params) throws IOException {
+    this.apiKey = apiKey;
+    this.params = params;
+  }
+
   // just uses basic business search; https://www.yelp.com/developers/documentation/v3/business_search
-  public URL createQuery(Map<String, String> parameters) throws URISyntaxException, MalformedURLException, IOException {
+  public URL createQuery() throws URISyntaxException, MalformedURLException, IOException {
     URIBuilder builder = new URIBuilder();
+    HttpGet httppost = new HttpPost("https://api.yelp.com")
     builder.setScheme("https").setHost("api.yelp.com").setPath("/v3/businesses/search");
     // Adding parameters to search string: TODO error checking. note, we need a location here in the parameters at least.
-    for(Map.Entry<String, String> entry : parameters.entrySet()) {
+    for(Map.Entry<String, String> entry : this.params.entrySet()) {
       builder.setParameter(entry.getKey(), entry.getValue());
     }
+    httppost.setHeader("Authorization", "Bearer " + this.apiKey);
     URI uri = builder.build();
     return uri.toURL();
   }
@@ -45,19 +61,10 @@ public class YelpQuery {
   }
 
   public static String readFile(String path) throws IOException, FileNotFoundException {
-    BufferedReader reader = new BufferedReader(new FileReader(path));
+    BufferedReader reader = new BufferedReader(new FileReader(System.getProperty("user.dir") + path));
     return reader.readLine(); // TODO: error handling
   }
   
-  public static void main(String[] args) throws URISyntaxException, IOException {
-    YelpQuery query = new YelpQuery();
-    Map<String, String> params = new HashMap<String, String>();
-    params.put("location", "Chicago");
-    params.put("term", "ice cream");
-    URL url = query.createQuery(params);
-    System.out.println(query.getQueryResponse(url));
-  }
-
 }
 
 
