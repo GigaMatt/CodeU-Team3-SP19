@@ -1,3 +1,24 @@
+<!-- Embedding Google Maps using amp-iframe -->
+<!-- NOTE: WE NEED EITHER
+            A PLACE ID FOR AMP-IFRAME IMPLEMENTATION  
+            TO USE "PLACE" MODE.
+  With the place mode, we don't need a place ID, we can simply use coordinates-->
+  <amp-iframe width="600"
+  height="400"
+  title="Google Map pin of a targeted location"
+  layout="responsive"
+  sandbox="allow-scripts allow-same-origin"
+  resizable
+  frameborder="0"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Vlck6aVee3BZB89cNHspl_DxQglae_Y&libraries=places">
+  <div overflow tabindex="0" role="button" aria-label="Show more">Click to show more</div>
+</amp-iframe>
+
+<!-- AMP PLACE ID LOOKS LIKE THIS:
+  src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ2eUgeAK6j4ARbn5u_wAGqWA&key=AIzaSyCNCZ0Twm_HFRaZ5i-FuPDYs3rLwm4_848">
+-->
+<!--------------------------------------------------------------------------------------------------------------------------------------------------->
+
 <!DOCTYPE html>
 <html>
    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Vlck6aVee3BZB89cNHspl_DxQglae_Y&libraries=places"></script>
