@@ -1,5 +1,8 @@
 package com.google.codeu.servlets;
 
+import java.util.Map;
+import java.util.HashMap;
+
 import java.io.IOException;
 import java.util.List;
 import java.net.URISyntaxException; 
@@ -40,7 +43,13 @@ public class MessageFeedServlet extends HttpServlet{
     response.setCharacterEncoding("UTF-8"); 
     List<Message> messages = datastore.getAllMessages();
     Gson gson = new Gson();
-    YelpQuery query = new YelpQuery();
+    String term = request.getParameter("term");
+    String location = request.getParameter("location");
+    HashMap<String, String> param_map = new HashMap<String, String>() {{
+      put("term", term);
+      put("location", location);
+    }};
+    YelpQuery query = new YelpQuery("nHhrlF_fSJVeSago5RBBPT4Pm_My-QczgCQl7f1d0jMaicWX4eHG6RefrcuAn_HhXRp3sm-c1DR7M-iK7g1M7HCMklsQPQB4KJvh5w0qzv-T6dIDNifo_mxtam-YXHYx",param_map);
     String json = "";
     try {
       json = query.createQuery();//gson.toJson(messages);
