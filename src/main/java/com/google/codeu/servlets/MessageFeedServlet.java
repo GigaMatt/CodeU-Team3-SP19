@@ -2,6 +2,7 @@ package com.google.codeu.servlets;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Enumeration;
 
 import java.io.IOException;
 import java.util.List;
@@ -45,11 +46,13 @@ public class MessageFeedServlet extends HttpServlet{
     Gson gson = new Gson();
     String term = request.getParameter("term");
     String location = request.getParameter("location");
-    HashMap<String, String> param_map = new HashMap<String, String>() {{
-      put("term", term);
-      put("location", location);
-    }};
-    YelpQuery query = new YelpQuery("nHhrlF_fSJVeSago5RBBPT4Pm_My-QczgCQl7f1d0jMaicWX4eHG6RefrcuAn_HhXRp3sm-c1DR7M-iK7g1M7HCMklsQPQB4KJvh5w0qzv-T6dIDNifo_mxtam-YXHYx",param_map);
+    HashMap<String, String> paramMap = new HashMap<String, String>();
+    Enumeration<String> paramNames = request.getParameterNames();
+    while(paramNames.hasMoreElements()) {
+        String currentName = paramNames.nextElement();
+        paramMap.put(currentName,request.getParameter(currentName));
+    }
+    YelpQuery query = new YelpQuery("nHhrlF_fSJVeSago5RBBPT4Pm_My-QczgCQl7f1d0jMaicWX4eHG6RefrcuAn_HhXRp3sm-c1DR7M-iK7g1M7HCMklsQPQB4KJvh5w0qzv-T6dIDNifo_mxtam-YXHYx",paramMap);
     String json = "";
     try {
       json = query.createQuery();//gson.toJson(messages);
