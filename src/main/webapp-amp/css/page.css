@@ -1,7 +1,4 @@
-/*! Bassplate | MIT License | http://github.com/basscss/bassplate */
-
-
-/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html {
+html {
   font-family: sans-serif;
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1955,16 +1952,16 @@ body {
   line-height: 1.4
 }
 
-.travel-flip {
+.discover-flip {
   transition: transform .1s;
   transform: rotate(0)
 }
 
-.travel-flip-flipped {
+.discover-flip-flipped {
   transform: rotate(180deg)
 }
 
-.travel-object-cover,.travel-object-cover>img {
+.discover-object-cover,.discover-object-cover>img {
   -o-object-fit: cover;
   object-fit: cover
 }
@@ -1977,6 +1974,6 @@ amp-img.circle img {
   border-radius: 50%
 }
 
-.travel-no-focus:focus {
+.discover-no-focus:focus {
   outline: none
 }
