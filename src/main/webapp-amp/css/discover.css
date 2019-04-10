@@ -1,5 +1,6 @@
+/*! Bassplate | MIT License | http://github.com/basscss/bassplate */
 
-html {
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html {
   font-family: sans-serif;
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1953,12 +1954,12 @@ body {
   line-height: 1.4
 }
 
-.discover-flip {
+.travel-flip {
   transition: transform .1s;
   transform: rotate(0)
 }
 
-.discover-flip-flipped {
+.travel-flip-flipped {
   transform: rotate(180deg)
 }
 
@@ -1984,7 +1985,7 @@ body {
   }
 }
 
-.discover-object-cover,.discover-object-cover>img {
+.travel-object-cover,.travel-object-cover>img {
   -o-object-fit: cover;
   object-fit: cover
 }
@@ -1997,97 +1998,97 @@ amp-img.circle img {
   border-radius: 50%
 }
 
-.discover-no-focus:focus {
+.travel-no-focus:focus {
   outline: none
 }
 
-.discover-type-active,.discover-type-active:visited {
+.travel-type-active,.travel-type-active:visited {
   color: #fd68ae
 }
 
-.discover-type-artistic,.discover-type-artistic:visited {
+.travel-type-artistic,.travel-type-artistic:visited {
   color: #32dada
 }
 
-.discover-type-drinks,.discover-type-drinks:visited {
+.travel-type-drinks,.travel-type-drinks:visited {
   color: #4e93f8
 }
 
-.discover-type-fashion,.discover-type-fashion:visited {
+.travel-type-fashion,.travel-type-fashion:visited {
   color: #f1c363
 }
 
-.discover-type-food,.discover-type-food:visited {
+.travel-type-food,.travel-type-food:visited {
   color: #aa5efd
 }
 
-.discover-type-music,.discover-type-music:visited {
+.travel-type-music,.travel-type-music:visited {
   color: #ec8936
 }
 
-.discover-type-nature,.discover-type-nature:visited {
+.travel-type-nature,.travel-type-nature:visited {
   color: #14b52a
 }
 
-.discover-type-nightlife,.discover-type-nightlife:visited {
+.travel-type-nightlife,.travel-type-nightlife:visited {
   color: #e83a3a
 }
 
-.discover-type-tours,.discover-type-tours:visited {
+.travel-type-tours,.travel-type-tours:visited {
   color: #0ece9e
 }
 
-.discover-type-water,.discover-type-water:visited {
+.travel-type-water,.travel-type-water:visited {
   color: #3abee8
 }
 
-.discover-overflow-container {
+.travel-overflow-container {
   display: inline-block;
   min-width: 100vw;
   padding-left: calc((100vw - 72rem) / 2);
   padding-right: calc((100vw - 72rem) / 2)
 }
 
-.discover-link,.discover-link:visited {
+.travel-link,.travel-link:visited {
   color: #8b58e3;
   text-decoration: none;
   font-family: inherit;
   transition: color .15s ease-in
 }
 
-.discover-link:hover {
+.travel-link:hover {
   color: #b99aef
 }
 
-.discover-link:focus {
+.travel-link:focus {
   outline: none;
   border-bottom: 2px solid rgba(50,58,67,.2)
 }
 
-.discover-link.gray,.discover-link.gray:visited {
+.travel-link.gray,.travel-link.gray:visited {
   color: #8f98a3
 }
 
-.discover-link.gray:hover {
+.travel-link.gray:hover {
   color: #b4b4b4
 }
 
-.discover-pill {
+.travel-pill {
   border-radius: 1em;
   padding: 2px 8px;
   color: #fff;
   background-color: #fb52a2
 }
 
-.discover-shadow,.discover-shadow-hover {
+.travel-shadow,.travel-shadow-hover {
   box-shadow: 0 .4rem 1.1rem rgba(50,58,67,.12)
 }
 
-.discover-shadow-hover {
+.travel-shadow-hover {
   transition: box-shadow .25s,transform .25s
 }
 
-.discover-shadow-hover:not([disabled]):focus,.discover-shadow-hover:not([disabled]):hover {
+.travel-shadow-hover:not([disabled]):focus,.travel-shadow-hover:not([disabled]):hover {
   transform: scale(1.02) translateY(-2%);
   box-shadow: 0 .4rem 2rem rgba(50,58,67,.4)
 }
@@ -2122,13 +2123,13 @@ amp-img.circle img {
   font-weight: 600
 }
 
-.discover-date-input {
+.travel-date-input {
   line-height: 1.125rem;
   padding: .5rem 1rem;
   padding-left: calc(.5rem * 2.5 + 1.2em)
 }
 
-.discover-date-input .discover-icon {
+.travel-date-input .travel-icon {
   position: absolute;
   left: 0;
   top: 0;
@@ -2136,11 +2137,11 @@ amp-img.circle img {
   padding: .5rem 1rem
 }
 
-.discover-date-input.input-dark .discover-date-input-label,.discover-date-input.input-dark .discover-icon {
+.travel-date-input.input-dark .travel-date-input-label,.travel-date-input.input-dark .travel-icon {
   color: hsla(0,0%,100%,.75)
 }
 
-.discover-date-input input {
+.travel-date-input input {
   opacity: 0;
   border: none;
   background: none;
@@ -2152,31 +2153,31 @@ amp-img.circle img {
   color: inherit
 }
 
-.discover-date-input-touched input,.discover-date-input input:focus {
+.travel-date-input-touched input,.travel-date-input input:focus {
   opacity: 1
 }
 
-.discover-date-input input:focus {
+.travel-date-input input:focus {
   outline: none
 }
 
-.discover-date-input-touched input~.discover-date-input-label,.discover-date-input input:focus~.discover-date-input-label {
+.travel-date-input-touched input~.travel-date-input-label,.travel-date-input input:focus~.travel-date-input-label {
   opacity: 0
 }
 
-.discover-date-input-touched input[disabled],.discover-date-input input[disabled]~.discover-date-input-label,.discover-date-input input[disabled]~.discover-icon {
+.travel-date-input-touched input[disabled],.travel-date-input input[disabled]~.travel-date-input-label,.travel-date-input input[disabled]~.travel-icon {
   opacity: .5
 }
 
-.discover-date-input input::-webkit-datetime-edit-fields-wrapper {
+.travel-date-input input::-webkit-datetime-edit-fields-wrapper {
   padding: 0
 }
 
-.discover-date-input input::-webkit-clear-button,.discover-date-input input::-webkit-inner-spin-button {
+.travel-date-input input::-webkit-clear-button,.travel-date-input input::-webkit-inner-spin-button {
   display: none
 }
 
-.discover-date-input input::-webkit-calendar-picker-indicator {
+.travel-date-input input::-webkit-calendar-picker-indicator {
   opacity: 0;
   padding: 0;
   position: absolute;
@@ -2187,11 +2188,11 @@ amp-img.circle img {
   cursor: pointer
 }
 
-.discover-input-icon>.discover-input {
+.travel-input-icon>.travel-input {
   padding-left: calc(.5rem * 2.5 + 1.2em)
 }
 
-.discover-input-icon>.discover-input+.discover-icon {
+.travel-input-icon>.travel-input+.travel-icon {
   position: absolute;
   left: 0;
   top: 0;
@@ -2199,19 +2200,19 @@ amp-img.circle img {
   padding: .5rem 1rem
 }
 
-.discover-input-icon>.discover-input-big {
+.travel-input-icon>.travel-input-big {
   padding-left: calc(1.25rem * 1.5 + 1.2em)
 }
 
-.discover-input-icon>.discover-input-big+.discover-icon {
+.travel-input-icon>.travel-input-big+.travel-icon {
   padding: 1rem 1.25rem
 }
 
-.discover-input-icon>.discover-input-clear+.discover-icon,.discover-input-icon>.discover-input-dark+.discover-icon {
+.travel-input-icon>.travel-input-clear+.travel-icon,.travel-input-icon>.travel-input-dark+.travel-icon {
   color: hsla(0,0%,100%,.4)
 }
 
-.discover-input {
+.travel-input {
   padding: .5rem 1rem;
   line-height: 1.125rem;
   background-color: #fff;
@@ -2220,54 +2221,54 @@ amp-img.circle img {
   color: inherit
 }
 
-.discover-input:not(.border) {
+.travel-input:not(.border) {
   border-color: transparent
 }
 
-.discover-input-clear {
+.travel-input-clear {
   color: #fff;
   background: none;
   border-color: hsla(0,0%,100%,.4)
 }
 
-.discover-input-big {
+.travel-input-big {
   padding: 1rem 1.25rem
 }
 
-.discover-input-dark {
+.travel-input-dark {
   background: rgba(0,0,0,.2)
 }
 
-.discover-input::-webkit-input-placeholder {
+.travel-input::-webkit-input-placeholder {
   color: #8f98a3
 }
 
-.discover-input-dark::-webkit-input-placeholder {
+.travel-input-dark::-webkit-input-placeholder {
   color: currentColor;
   opacity: .75
 }
 
-.discover-input-clear::-webkit-input-placeholder {
+.travel-input-clear::-webkit-input-placeholder {
   color: inherit;
   opacity: .4
 }
 
-.discover-border-gray {
+.travel-border-gray {
   border-color: #e3e5e8
 }
 
-.discover-input-group>.discover-input {
+.travel-input-group>.travel-input {
   border-right-width: 0
 }
 
-.discover-input-group>a,.discover-input-group>button {
+.travel-input-group>a,.travel-input-group>button {
   border-left-width: 0;
   cursor: pointer;
   background-color: #fff;
   border: 1px solid transparent
 }
 
-.discover-input-group-sep {
+.travel-input-group-sep {
   width: 0;
   height: 1.375rem;
   border-left-width: 1px;
@@ -2276,56 +2277,56 @@ amp-img.circle img {
   pointer-events: none
 }
 
-.discover-input-group>.discover-input:focus,.discover-input-group>.discover-link:focus {
+.travel-input-group>.travel-input:focus,.travel-input-group>.travel-link:focus {
   outline: none;
   border-bottom: .125rem solid;
   border-bottom-color: #e3e5e8
 }
 
-.discover-activities-activity {
+.travel-activities-activity {
   transition: transform .3s ease-in-out;
   text-decoration: none;
   perspective: 800px;
   margin: 0 1.2rem
 }
 
-.discover-activities-activity .circle {
+.travel-activities-activity .circle {
   background-color: #fff;
   margin-bottom: 2px
 }
 
-.discover-activities-activity:focus,.discover-activities-activity:hover {
+.travel-activities-activity:focus,.travel-activities-activity:hover {
   transform: scale(1.1)
 }
 
-.discover-activities-activity .circle {
+.travel-activities-activity .circle {
   transition: transform .3s ease-in-out,background .15s step-start .15s
 }
 
-.discover-activities-activity .discover-activities-activity-icon {
+.travel-activities-activity .travel-activities-activity-icon {
   transition: color .15s step-start .15s,transform .15s step-start .15s
 }
 
-.discover-activities-activity:focus .circle,.discover-activities-activity:hover .circle {
+.travel-activities-activity:focus .circle,.travel-activities-activity:hover .circle {
   background-color: currentColor;
   transform: rotateY(180deg)
 }
 
-.discover-activities-activity:focus .discover-activities-activity-icon,.discover-activities-activity:hover .discover-activities-activity-icon {
+.travel-activities-activity:focus .travel-activities-activity-icon,.travel-activities-activity:hover .travel-activities-activity-icon {
   color: #fff;
   transform: scaleX(-1)
 }
 
-.discover-activities-activity:active {
+.travel-activities-activity:active {
   transition: transform .1s;
   transform: scale(1)
 }
 
-.discover-activities-activity:focus {
+.travel-activities-activity:focus {
   outline: none
 }
 
-.discover-activities-activity-icon {
+.travel-activities-activity-icon {
   display: -ms-flexbox;
   display: flex;
   width: 70px;
@@ -2338,70 +2339,70 @@ amp-img.circle img {
   font-size: 2rem
 }
 
-.discover-angle-1,.discover-angle-2,.discover-angle-3 {
+.travel-angle-1,.travel-angle-2,.travel-angle-3 {
   width: 400vw;
   transform-origin: 50% 0
 }
 
-.discover-angle-left {
+.travel-angle-left {
   transform: translateX(0)
 }
 
-.discover-angle-right {
+.travel-angle-right {
   transform: translateX(100%)
 }
 
-.discover-angle-1 {
+.travel-angle-1 {
   height: 800px;
   transform: translate(-50%,-3rem) rotate(20deg);
   background-color: #fafbfc
 }
 
 @media (min-width:52.06rem) {
-  .discover-angle-1 {
+  .travel-angle-1 {
     transform: translate(-50%,-17rem) rotate(20deg)
   }
 }
 
-.discover-angle-2 {
+.travel-angle-2 {
   height: 1400px;
   transform: translate(-50%,16rem) rotate(20deg);
   background-color: #fff
 }
 
 @media (min-width:52.06rem) {
-  .discover-angle-2 {
+  .travel-angle-2 {
     transform: translate(-50%,20rem) rotate(20deg)
   }
 }
 
-.discover-angle-3 {
+.travel-angle-3 {
   height: 500px;
   transform: translate(-50%,1rem) rotate(-5deg);
   background-image: linear-gradient(90deg,rgba(207,224,231,.2) 20%,rgba(243,246,247,.4) 50%)
 }
 
 @media (min-width:52.06rem) {
-  .discover-angle-3 {
+  .travel-angle-3 {
     transform: translate(-50%,16rem) rotate(-5deg);
     animation: b .3s .6s ease-in-out both
   }
 }
 
-.discover-discover-panel {
+.travel-discover-panel {
   max-width: 440px;
   background-color: #fff
 }
 
-.discover-discover-heading {
+.travel-discover-heading {
   font-size: 3.5rem
 }
 
-.discover-discover-panel-subheading,.discover-discover-subheading {
+.travel-discover-panel-subheading,.travel-discover-subheading {
   color: #8f98a3
 }
 
-.discover-icon {
+.travel-icon {
   display: inline-block;
   vertical-align: -23%;
   height: 1.2em;
@@ -2411,75 +2412,75 @@ amp-img.circle img {
   background-size: auto 1.2em
 }
 
-.discover-icon-logo {
+.travel-icon-logo {
   color: #fff
 }
 
-.discover-img-icon-checkmark-purple {
-  background-image: url(../../img/discover/icon/checkmark-purple.png)
+.travel-img-icon-checkmark-purple {
+  background-image: url(../../img/travel/icon/checkmark-purple.png)
 }
 
-.discover-img-icon-map-pin-outline-gray {
-  background-image: url(../../img/discover/icon/map-pin-outline-gray.png)
+.travel-img-icon-map-pin-outline-gray {
+  background-image: url(../../img/travel/icon/map-pin-outline-gray.png)
 }
 
-.discover-img-icon-map-pin-transparent {
-  background-image: url(../../img/discover/icon/map-pin-transparent.png)
+.travel-img-icon-map-pin-transparent {
+  background-image: url(../../img/travel/icon/map-pin-transparent.png)
 }
 
-.discover-img-icon-plane-landing-transparent {
-  background-image: url(../../img/discover/icon/plane-landing-transparent.png)
+.travel-img-icon-plane-landing-transparent {
+  background-image: url(../../img/travel/icon/plane-landing-transparent.png)
 }
 
-.discover-img-icon-plane-taking-off-transparent {
-  background-image: url(../../img/discover/icon/plane-taking-off-transparent.png)
+.travel-img-icon-plane-taking-off-transparent {
+  background-image: url(../../img/travel/icon/plane-taking-off-transparent.png)
 }
 
-.discover-img-icon-sad-face-gray {
-  background-image: url(../../img/discover/icon/sad-face-gray.png)
+.travel-img-icon-sad-face-gray {
+  background-image: url(../../img/travel/icon/sad-face-gray.png)
 }
 
-.discover-img-icon-star-green {
-  background-image: url(../../img/discover/icon/star-green.png)
+.travel-img-icon-star-green {
+  background-image: url(../../img/travel/icon/star-green.png)
 }
 
-.discover-img-icon-star-silver {
-  background-image: url(../../img/discover/icon/star-silver.png)
+.travel-img-icon-star-silver {
+  background-image: url(../../img/travel/icon/star-silver.png)
 }
 
-.discover-like-heart-solid {
+.travel-like-heart-solid {
   background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewbox='0 0 100 100'><path fill='%23FB52A2' d='M50,88.8652765 C76.6666667,70.4615567 90,53.8959001 90,39.1683068 C90,17.0769168 63.1171875,3.83663909 50,27.6306647 C38.875,3.83663909 10,17.0769168 10,39.1683068 C10,53.8959001 23.3333333,70.4615567 50,88.8652765 Z'/></svg>") no-repeat 50% 50%;
   background-size: contain;
   -ms-flex: 1;
   flex: 1
 }
 
-.discover-like-heart-white {
+.travel-like-heart-white {
   background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewbox='0 0 100 100'><path fill='white' d='M50,88.8652765 C76.6666667,70.4615567 90,53.8959001 90,39.1683068 C90,17.0769168 63.1171875,3.83663909 50,27.6306647 C38.875,3.83663909 10,17.0769168 10,39.1683068 C10,53.8959001 23.3333333,70.4615567 50,88.8652765 Z'/></svg>") no-repeat 50% 50%;
   background-size: contain;
   -ms-flex: 1;
   flex: 1
 }
 
-.discover-like-heart-outline {
+.travel-like-heart-outline {
   background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewbox='0 0 100 100'><path fill='none' stroke='white' stroke-width='5' d='M50,88.8652765 C76.6666667,70.4615567 90,53.8959001 90,39.1683068 C90,17.0769168 63.1171875,3.83663909 50,27.6306647 C38.875,3.83663909 10,17.0769168 10,39.1683068 C10,53.8959001 23.3333333,70.4615567 50,88.8652765 Z'/></svg>") no-repeat 50% 50%;
   background-size: contain;
   -ms-flex: 1;
   flex: 1
 }
 
-.discover-like input {
+.travel-like input {
   clip: rect(0 0 0 0)
 }
 
-.discover-like-hearts {
+.travel-like-hearts {
   width: 2rem;
   height: 2rem;
   background: rgba(0,0,0,.15);
   cursor: pointer
 }
 
-.discover-like-hearts:before {
+.travel-like-hearts:before {
   content: "";
   display: block;
   position: absolute;
@@ -2492,65 +2493,65 @@ amp-img.circle img {
   transform: scale(0)
 }
 
-.discover-like-heart-tiny {
+.travel-like-heart-tiny {
   width: 40%;
   height: 40%;
   opacity: 0
 }
 
-.discover-like-heart-tiny:first-child {
+.travel-like-heart-tiny:first-child {
   top: 10%;
   left: 55%;
   animation-delay: .15s
 }
 
-.discover-like-heart-tiny:nth-child(2) {
+.travel-like-heart-tiny:nth-child(2) {
   top: -5%;
   left: 30%;
   animation-delay: .25s
 }
 
-.discover-like-heart-tiny:nth-child(3) {
+.travel-like-heart-tiny:nth-child(3) {
   top: -25%;
   left: 65%;
   animation-delay: .32s
 }
 
-.discover-like-heart {
+.travel-like-heart {
   top: 12%;
   right: 12%;
   bottom: 12%;
   left: 12%
 }
 
-.discover-like-heart.discover-like-heart-solid,.discover-like-heart.discover-like-heart-white {
+.travel-like-heart.travel-like-heart-solid,.travel-like-heart.travel-like-heart-white {
   opacity: 0;
   transform: translateZ(0) scale(1)
 }
 
-.discover-like-heart.discover-like-heart-outline {
+.travel-like-heart.travel-like-heart-outline {
   transition: opacity .1s;
   transform: translateZ(0) scale(1)
 }
 
-.discover-like input:checked+.discover-like-hearts:before {
+.travel-like input:checked+.travel-like-hearts:before {
   animation: 1.2s e both
 }
 
-.discover-like input:checked+.discover-like-hearts>.discover-like-heart-tiny {
+.travel-like input:checked+.travel-like-hearts>.travel-like-heart-tiny {
   animation-duration: .6s;
   animation-name: f
 }
 
-.discover-like input:checked+.discover-like-hearts>.discover-like-heart.discover-like-heart-outline {
+.travel-like input:checked+.travel-like-hearts>.travel-like-heart.travel-like-heart-outline {
   opacity: 0
 }
 
-.discover-like input:checked+.discover-like-hearts>.discover-like-heart.discover-like-heart-solid {
+.travel-like input:checked+.travel-like-hearts>.travel-like-heart.travel-like-heart-solid {
   animation: 1.2s c both cubic-bezier(.445,.05,.55,.95)
 }
 
-.discover-like input:checked+.discover-like-hearts>.discover-like-heart.discover-like-heart-white {
+.travel-like input:checked+.travel-like-hearts>.travel-like-heart.travel-like-heart-white {
   animation: 1.2s d both
 }
 
@@ -2639,28 +2640,28 @@ amp-img.circle img {
   }
 }
 
-:root .discover-popular .discover-results-result {
+:root .travel-popular .travel-results-result {
   animation: none
 }
 
-.discover-popular-tilt-left,.discover-popular-tilt-right {
+.travel-popular-tilt-left,.travel-popular-tilt-right {
   display: inline-block;
   position: relative;
   perspective: 1000px;
   perspective-origin: 50% calc(100% + 4rem)
 }
 
-.discover-popular-tilt-left .discover-results-result {
+.travel-popular-tilt-left .travel-results-result {
   transform-origin: 0 0;
   transform: rotateY(-15deg)
 }
 
-.discover-popular-tilt-right .discover-results-result {
+.travel-popular-tilt-right .travel-results-result {
   transform-origin: 100% 0;
   transform: rotateY(15deg)
 }
 
-.discover-popular-tilt-left:before,.discover-popular-tilt-right:before {
+.travel-popular-tilt-left:before,.travel-popular-tilt-right:before {
   content: "";
   display: block;
   position: absolute;
@@ -2671,62 +2672,62 @@ amp-img.circle img {
   box-shadow: 0 0 2.2rem 2.2rem rgba(50,58,67,.2)
 }
 
-.discover-popular-tilt-left:before {
+.travel-popular-tilt-left:before {
   transform-origin: 2rem calc(100% + 2rem);
   transform: translateY(.28rem) rotate(2.5deg)
 }
 
-.discover-popular-tilt-right:before {
+.travel-popular-tilt-right:before {
   transform-origin: calc(100% + 2rem) calc(100% + 2rem);
   transform: translateY(.28rem) rotate(-2.5deg)
 }
 
-.discover-results-result {
+.travel-results-result {
   animation: a .4s ease-in-out both;
   animation-delay: .11s
 }
 
-.discover-results-result-link {
+.travel-results-result-link {
   border-radius: 4px
 }
 
-.discover-results-result-link amp-img {
+.travel-results-result-link amp-img {
   background-color: #e3e5e8
 }
 
-.discover-results-result-text {
+.travel-results-result-text {
   color: #323a43
 }
 
-.discover-results-result-subtext {
+.travel-results-result-subtext {
   color: #8f98a3
 }
 
-.discover-results-result-stars {
+.travel-results-result-stars {
   color: #e3e5e8
 }
 
-.discover-results-result-stars.green {
+.travel-results-result-stars.green {
   color: #47b074
 }
 
-.discover-results-result-flags,.discover-results-result-like {
+.travel-results-result-flags,.travel-results-result-like {
   pointer-events: none
 }
 
-.discover-results-result-flags>*,.discover-results-result-like>* {
+.travel-results-result-flags>*,.travel-results-result-like>* {
   pointer-events: all
 }
 
-.discover-results-result-flags,.discover-results-result-like,.discover-results-result-link {
+.travel-results-result-flags,.travel-results-result-like,.travel-results-result-link {
   transition: transform .2s
 }
 
-.discover-results-result-link:focus,.discover-results-result:hover .discover-results-result-link {
+.travel-results-result-link:focus,.travel-results-result:hover .travel-results-result-link {
   outline: none
 }
 
-.discover-results-result-link:focus,.discover-results-result-link:focus~.discover-results-result-flags,.discover-results-result-link:focus~.discover-results-result-like,.discover-results-result:hover .discover-results-result-flags,.discover-results-result:hover .discover-results-result-like,.discover-results-result:hover .discover-results-result-link {
+.travel-results-result-link:focus,.travel-results-result-link:focus~.travel-results-result-flags,.travel-results-result-link:focus~.travel-results-result-like,.travel-results-result:hover .travel-results-result-flags,.travel-results-result:hover .travel-results-result-like,.travel-results-result:hover .travel-results-result-link {
   transform: translateY(-.5rem)
 }
 
@@ -2790,16 +2791,16 @@ amp-img.circle img {
   }
 }
 
-.discover-hero {
+.travel-hero {
   height: 100vmax
 }
 
-.discover-hero-bg {
+.travel-hero-bg {
   height: 70vmax;
   animation: b .8s ease-out both
 }
 
-.discover-hero-bg:after {
+.travel-hero-bg:after {
   content: "";
   position: absolute;
   left: 0;
@@ -2809,7 +2810,7 @@ amp-img.circle img {
   background-image: linear-gradient(180deg,transparent,#323a43 300px)
 }
 
-.discover-hero-bg-img {
+.travel-hero-bg-img {
   top: -5vmax;
   right: -5vmax;
   bottom: -5vmax;
@@ -2818,44 +2819,44 @@ amp-img.circle img {
   background: #e3e5e8
 }
 
-.discover-hero-bg-img img {
+.travel-hero-bg-img img {
   -o-object-fit: cover;
   object-fit: cover
 }
 
-.discover-hero-bg-img:nth-child(3) img {
+.travel-hero-bg-img:nth-child(3) img {
   -o-object-position: 80% 100%;
   object-position: 80% 100%
 }
 
-.discover-hero-bg-img:first-child {
+.travel-hero-bg-img:first-child {
   animation: 18s g linear infinite;
-  background: url(../../img/discover/hero-2-preview.jpg) no-repeat 50% 50%;
+  background: url(../../img/travel/hero-2-preview.jpg) no-repeat 50% 50%;
   background-size: cover
 }
 
-.discover-hero-bg-img:nth-child(2) {
+.travel-hero-bg-img:nth-child(2) {
   animation: 18s h linear 6s infinite;
-  background: url(../../img/discover/hero-3-preview.jpg) no-repeat 50% 50%;
+  background: url(../../img/travel/hero-3-preview.jpg) no-repeat 50% 50%;
   background-size: cover
 }
 
-.discover-hero-bg-img:nth-child(3) {
+.travel-hero-bg-img:nth-child(3) {
   animation: 18s i linear 12s infinite;
-  background: url(../../img/discover/hero-1-preview.jpg) no-repeat 50% 50%;
+  background: url(../../img/travel/hero-1-preview.jpg) no-repeat 50% 50%;
   background-size: cover
 }
 
-.discover-hero-content {
+.travel-hero-content {
   padding-top: 86px;
   height: calc(100vmax - 70px)
 }
 
-.discover-hero-search-dates {
+.travel-hero-search-dates {
   color: #fff
 }
 
-.discover-hero-heading {
+.travel-hero-heading {
   color: #fff;
   font-size: 3.75rem;
   font-weight: 700;
@@ -2863,134 +2864,134 @@ amp-img.circle img {
   animation: a .4s .2s ease-in-out both
 }
 
-.discover-hero-subheading {
+.travel-hero-subheading {
   color: #fff;
   font-size: 18px;
   letter-spacing: normal;
   animation: a .4s .25s ease-in-out both
 }
 
-.discover-hero-search .discover-input-icon {
+.travel-hero-search .travel-input-icon {
   animation: a .4s .3s ease-in-out both
 }
 
-.discover-hero-search-dates {
+.travel-hero-search-dates {
   animation: a .4s .35s ease-in-out both
 }
 
-.discover-hero-search .ampstart-btn {
+.travel-hero-search .ampstart-btn {
   font-size: 1.25rem;
   background-color: #8b58e3;
   animation: a .4s .4s ease-in-out both
 }
 
-.discover-hero-discover {
+.travel-hero-discover {
   color: #8f98a3;
   cursor: pointer;
   animation: a .4s .45s ease-in-out both
 }
 
-.discover-hero-discover svg {
+.travel-hero-discover svg {
   display: block;
   margin: 0 auto
 }
 
-.discover-angles {
+.travel-angles {
   animation: a .4s .5s ease-in-out both
 }
 
-.discover-discover {
+.travel-discover {
   animation: a .4s .55s ease-in-out both
 }
 
-.discover-activities {
+.travel-activities {
   animation: a .4s .6s ease-in-out both
 }
 
 @media (min-width:52.06rem) {
-  .discover-hero {
+  .travel-hero {
     z-index: 1;
     height: auto
   }
 
-  .discover-hero-bg,.discover-hero-content {
+  .travel-hero-bg,.travel-hero-content {
     position: relative;
     height: auto
   }
 
-  .discover-hero-content {
+  .travel-hero-content {
     padding-top: calc(86px + 56px);
     padding-bottom: 3rem
   }
 
-  .discover-hero-heading {
+  .travel-hero-heading {
     font-size: 4.6rem
   }
 
-  .discover-hero-subheading {
+  .travel-hero-subheading {
     font-size: 1.5rem
   }
 
-  .discover-hero-search {
+  .travel-hero-search {
     margin-top: 4.25rem;
     max-width: 530px
   }
 
-  .discover-hero-search .discover-input {
+  .travel-hero-search .travel-input {
     color: inherit;
     background-color: #fff;
     border-color: transparent
   }
 
-  .discover-hero-search .discover-input-clear+.discover-icon {
+  .travel-hero-search .travel-input-clear+.travel-icon {
     color: inherit
   }
 
-  .discover-hero .ampstart-btn {
+  .travel-hero .ampstart-btn {
     display: inline-block;
     width: auto
   }
 
-  .discover-hero-search-dates {
+  .travel-hero-search-dates {
     -ms-flex-pack: start;
     justify-content: flex-start;
     color: #323a43
   }
 
-  .discover-hero-search-dates .discover-date-input {
+  .travel-hero-search-dates .travel-date-input {
     -ms-flex: none;
     flex: none
   }
 }
 
 @media (min-width:40.06rem) {
-  .discover-header .discover-icon-logo {
+  .travel-header .travel-icon-logo {
     margin: inherit
   }
 }
 
-.discover-footer {
+.travel-footer {
   background-color: #fff
 }
 
-.discover-footer amp-img {
+.travel-footer amp-img {
   background-color: #e3e5e8
 }
 
-.discover-footer .link.gray:focus {
+.travel-footer .link.gray:focus {
   border-bottom: .125rem solid hsla(0,0%,100%,.25)
 }
 
-.discover-footer-right-column .blue {
+.travel-footer-right-column .blue {
   color: #3682ec
 }
 
-.discover-footer-input-bg {
+.travel-footer-input-bg {
   top: 50%;
   bottom: -1px
 }
 
-.discover-footer-angle {
+.travel-footer-angle {
   width: 200vw;
   bottom: 100%;
   height: 800px;
@@ -2999,29 +3000,29 @@ amp-img.circle img {
   opacity: .2
 }
 
-.discover-footer-angle-block {
+.travel-footer-angle-block {
   left: 50%;
   background: #fff
 }
 
-.discover-newsletter-signup {
+.travel-newsletter-signup {
   background-color: #fff
 }
 
-.discover-footer .bg-black {
+.travel-footer .bg-black {
   background-color: #323a43
 }
 
-.discover-footer .gray {
+.travel-footer .gray {
   color: #8f98a3
 }
 
-.discover-footer-wrapper {
+.travel-footer-wrapper {
   background-color: #fff
 }
 
 @media (min-width:52.06rem) {
-  .discover-newsletter-signup {
+  .travel-newsletter-signup {
     background-color: transparent;
     position: absolute;
     top: 4rem;
@@ -3029,76 +3030,76 @@ amp-img.circle img {
     left: 50%
   }
 
-  .discover-newsletter-signup .blue {
+  .travel-newsletter-signup .blue {
     font-size: 2rem;
     color: #323a43
   }
 
-  .discover-footer-input-bg {
+  .travel-footer-input-bg {
     position: absolute;
     top: 50%;
     bottom: -1px
   }
 
-  .discover-footer .discover-input-group {
+  .travel-footer .travel-input-group {
     box-shadow: none
   }
 
-  .discover-footer .discover-input-group>button {
+  .travel-footer .travel-input-group>button {
     border-color: #e3e5e8;
     border-top-style: solid;
     border-left-width: 0
   }
 
-  .discover-footer .discover-input-group>.discover-input {
+  .travel-footer .travel-input-group>.travel-input {
     border-color: #e3e5e8
   }
 }
 
-.discover-featured-heading {
+.travel-featured-heading {
   letter-spacing: none
 }
 
-.discover-featured-grid,.discover-featured-tile {
+.travel-featured-grid,.travel-featured-tile {
   margin: 2px
 }
 
-.discover-featured-tile-heading {
+.travel-featured-tile-heading {
   letter-spacing: .1em
 }
 
-.discover-featured-tile:focus,.discover-featured-tile:hover {
+.travel-featured-tile:focus,.travel-featured-tile:hover {
   z-index: 1
 }
 
-.discover-featured-tile amp-img {
+.travel-featured-tile amp-img {
   transition: transform .5s ease-out,box-shadow .5s ease-out
 }
 
-.discover-featured-tile img {
+.travel-featured-tile img {
   transition: transform 2s ease-out;
   transform-origin: 50% 66%
 }
 
-.discover-featured-tile:focus amp-img,.discover-featured-tile:hover amp-img {
+.travel-featured-tile:focus amp-img,.travel-featured-tile:hover amp-img {
   box-shadow: 0 .6rem 2rem rgba(50,58,67,.4);
   transform: scale(1.05)
 }
 
-.discover-featured-tile:focus img,.discover-featured-tile:hover img {
+.travel-featured-tile:focus img,.travel-featured-tile:hover img {
   transform: scale(1.3)
 }
 
-.discover-featured-tile .discover-featured-overlay {
+.travel-featured-tile .travel-featured-overlay {
   color: #fff;
   transition: transform 2s ease-out
 }
 
-.discover-featured-tile:hover .discover-featured-overlay {
+.travel-featured-tile:hover .travel-featured-overlay {
   transform: translateY(1rem)
 }
 
-.discover-featured-tile amp-img:after {
+.travel-featured-tile amp-img:after {
   content: "";
   display: block;
   position: absolute;
@@ -3111,13 +3112,13 @@ amp-img.circle img {
 }
 
 @media (min-width:40.06rem) {
-  .discover-featured-grid,.discover-featured-tile {
+  .travel-featured-grid,.travel-featured-tile {
     margin: 4px
   }
 }
 
 @media (min-width:52.06rem) {
-  .discover-featured:after {
+  .travel-featured:after {
     content: "";
     position: absolute;
     width: 100%;
@@ -3130,49 +3131,49 @@ amp-img.circle img {
     background-color: #8b58e3
   }
 
-  .discover-featured-grid,.discover-featured-tile {
+  .travel-featured-grid,.travel-featured-tile {
     margin: 6px
   }
 }
 
 @media (min-width:72.06rem) {
-  .discover-featured-grid,.discover-featured-tile {
+  .travel-featured-grid,.travel-featured-tile {
     margin: 8px
   }
 }
 
-.discover-featured-color-blue,.discover-featured-color-blue:visited {
+.travel-featured-color-blue,.travel-featured-color-blue:visited {
   color: #1b65d6
 }
 
-.discover-featured-color-cyan,.discover-featured-color-cyan:visited {
+.travel-featured-color-cyan,.travel-featured-color-cyan:visited {
   color: #91b2c0
 }
 
-.discover-featured-color-orange,.discover-featured-color-orange:visited {
+.travel-featured-color-orange,.travel-featured-color-orange:visited {
   color: #e2a367
 }
 
-.discover-featured-color-purple,.discover-featured-color-purple:visited {
+.travel-featured-color-purple,.travel-featured-color-purple:visited {
   color: #281a5f
 }
 
-.discover-featured-color-cornflower,.discover-featured-color-cornflower:visited {
+.travel-featured-color-cornflower,.travel-featured-color-cornflower:visited {
   color: #477bad
 }
 
-.discover-featured-color-teal,.discover-featured-color-teal:visited {
+.travel-featured-color-teal,.travel-featured-color-teal:visited {
   color: #13a3c4
 }
 
-.discover-search {
+.travel-search {
   background-color: #8b58e3
 }
 
-.discover-search-heading {
+.travel-search-heading {
   color: #fff
 }
 
-.discover-search .discover-link {
+.travel-search .travel-link {
   background-color: #fff
 }

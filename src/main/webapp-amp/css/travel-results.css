@@ -1,4 +1,6 @@
-html {
+/*! Bassplate | MIT License | http://github.com/basscss/bassplate */
+
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html {
   font-family: sans-serif;
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1952,12 +1954,12 @@ body {
   line-height: 1.4
 }
 
-.discover-flip {
+.travel-flip {
   transition: transform .1s;
   transform: rotate(0)
 }
 
-.discover-flip-flipped {
+.travel-flip-flipped {
   transform: rotate(180deg)
 }
 
@@ -1973,7 +1975,7 @@ body {
   }
 }
 
-.discover-object-cover,.discover-object-cover>img {
+.travel-object-cover,.travel-object-cover>img {
   -o-object-fit: cover;
   object-fit: cover
 }
@@ -1986,51 +1988,51 @@ amp-img.circle img {
   border-radius: 50%
 }
 
-.discover-no-focus:focus {
+.travel-no-focus:focus {
   outline: none
 }
 
-.discover-type-active,.discover-type-active:visited {
+.travel-type-active,.travel-type-active:visited {
   color: #fd68ae
 }
 
-.discover-type-artistic,.discover-type-artistic:visited {
+.travel-type-artistic,.travel-type-artistic:visited {
   color: #32dada
 }
 
-.discover-type-drinks,.discover-type-drinks:visited {
+.travel-type-drinks,.travel-type-drinks:visited {
   color: #4e93f8
 }
 
-.discover-type-fashion,.discover-type-fashion:visited {
+.travel-type-fashion,.travel-type-fashion:visited {
   color: #f1c363
 }
 
-.discover-type-food,.discover-type-food:visited {
+.travel-type-food,.travel-type-food:visited {
   color: #aa5efd
 }
 
-.discover-type-music,.discover-type-music:visited {
+.travel-type-music,.travel-type-music:visited {
   color: #ec8936
 }
 
-.discover-type-nature,.discover-type-nature:visited {
+.travel-type-nature,.travel-type-nature:visited {
   color: #14b52a
 }
 
-.discover-type-nightlife,.discover-type-nightlife:visited {
+.travel-type-nightlife,.travel-type-nightlife:visited {
   color: #e83a3a
 }
 
-.discover-type-tours,.discover-type-tours:visited {
+.travel-type-tours,.travel-type-tours:visited {
   color: #0ece9e
 }
 
-.discover-type-water,.discover-type-water:visited {
+.travel-type-water,.travel-type-water:visited {
   color: #3abee8
 }
 
-.discover-badge {
+.travel-badge {
   padding: 4px 10px;
   color: #8f98a3;
   border: 1px solid #e3e5e8;
@@ -2039,19 +2041,19 @@ amp-img.circle img {
   margin-left: .5rem
 }
 
-.discover-badge.green {
+.travel-badge.green {
   color: #47b074;
   border-color: transparent;
   background: rgba(71,176,116,.2)
 }
 
-.discover-block-list {
+.travel-block-list {
   min-height: 1px;
   min-width: 1px;
   position: static
 }
 
-.discover-block-list [role=list] {
+.travel-block-list [role=list] {
   position: static;
   height: auto;
   width: auto;
@@ -2059,12 +2061,12 @@ amp-img.circle img {
   display: flex
 }
 
-.discover-block-list:after {
+.travel-block-list:after {
   content: " ";
   display: inline
 }
 
-.discover-border-gray {
+.travel-border-gray {
   border-color: #e3e5e8
 }
 
@@ -2094,20 +2096,20 @@ amp-img.circle img {
   font-weight: 600
 }
 
-.discover-overflow-container {
+.travel-overflow-container {
   display: inline-block;
   min-width: 100vw;
   padding-left: calc((100vw - 72rem) / 2);
   padding-right: calc((100vw - 72rem) / 2)
 }
 
-.discover-date-input {
+.travel-date-input {
   line-height: 1.125rem;
   padding: .5rem 1rem;
   padding-left: calc(.5rem * 2.5 + 1.2em)
 }
 
-.discover-date-input .discover-icon {
+.travel-date-input .travel-icon {
   position: absolute;
   left: 0;
   top: 0;
@@ -2115,11 +2117,11 @@ amp-img.circle img {
   padding: .5rem 1rem
 }
 
-.discover-date-input.input-dark .discover-date-input-label,.discover-date-input.input-dark .discover-icon {
+.travel-date-input.input-dark .travel-date-input-label,.travel-date-input.input-dark .travel-icon {
   color: hsla(0,0%,100%,.75)
 }
 
-.discover-date-input input {
+.travel-date-input input {
   opacity: 0;
   border: none;
   background: none;
@@ -2131,31 +2133,31 @@ amp-img.circle img {
   color: inherit
 }
 
-.discover-date-input-touched input,.discover-date-input input:focus {
+.travel-date-input-touched input,.travel-date-input input:focus {
   opacity: 1
 }
 
-.discover-date-input input:focus {
+.travel-date-input input:focus {
   outline: none
 }
 
-.discover-date-input-touched input~.discover-date-input-label,.discover-date-input input:focus~.discover-date-input-label {
+.travel-date-input-touched input~.travel-date-input-label,.travel-date-input input:focus~.travel-date-input-label {
   opacity: 0
 }
 
-.discover-date-input-touched input[disabled],.discover-date-input input[disabled]~.discover-date-input-label,.discover-date-input input[disabled]~.discover-icon {
+.travel-date-input-touched input[disabled],.travel-date-input input[disabled]~.travel-date-input-label,.travel-date-input input[disabled]~.travel-icon {
   opacity: .5
 }
 
-.discover-date-input input::-webkit-datetime-edit-fields-wrapper {
+.travel-date-input input::-webkit-datetime-edit-fields-wrapper {
   padding: 0
 }
 
-.discover-date-input input::-webkit-clear-button,.discover-date-input input::-webkit-inner-spin-button {
+.travel-date-input input::-webkit-clear-button,.travel-date-input input::-webkit-inner-spin-button {
   display: none
 }
 
-.discover-date-input input::-webkit-calendar-picker-indicator {
+.travel-date-input input::-webkit-calendar-picker-indicator {
   opacity: 0;
   padding: 0;
   position: absolute;
@@ -2166,13 +2168,13 @@ amp-img.circle img {
   cursor: pointer
 }
 
-.discover-fade-right {
+.travel-fade-right {
   overflow: hidden;
   white-space: nowrap;
   position: relative
 }
 
-.discover-fade-right:after {
+.travel-fade-right:after {
   content: "";
   display: block;
   position: absolute;
@@ -2183,36 +2185,36 @@ amp-img.circle img {
   background: linear-gradient(270deg,#fff 0,hsla(0,0%,100%,0))
 }
 
-.discover-inline-list {
+.travel-inline-list {
   position: static;
   min-height: 10px
 }
 
-.discover-inline-list,.discover-inline-list [role=list],.discover-inline-list [role=listitem] {
+.travel-inline-list,.travel-inline-list [role=list],.travel-inline-list [role=listitem] {
   display: inline
 }
 
-.discover-inline-list [role=list] {
+.travel-inline-list [role=list] {
   position: static
 }
 
-.discover-inline-list:after {
+.travel-inline-list:after {
   content: " ";
   display: inline
 }
 
-.discover-input-group>.discover-input {
+.travel-input-group>.travel-input {
   border-right-width: 0
 }
 
-.discover-input-group>a,.discover-input-group>button {
+.travel-input-group>a,.travel-input-group>button {
   border-left-width: 0;
   cursor: pointer;
   background-color: #fff;
   border: 1px solid transparent
 }
 
-.discover-input-group-sep {
+.travel-input-group-sep {
   width: 0;
   height: 1.375rem;
   border-left-width: 1px;
@@ -2221,13 +2223,13 @@ amp-img.circle img {
   pointer-events: none
 }
 
-.discover-input-group>.discover-input:focus,.discover-input-group>.discover-link:focus {
+.travel-input-group>.travel-input:focus,.travel-input-group>.travel-link:focus {
   outline: none;
   border-bottom: .125rem solid;
   border-bottom-color: #e3e5e8
 }
 
-.discover-input-range {
+.travel-input-range {
   display: block;
   color: inherit;
   background-color: transparent;
@@ -2236,7 +2238,7 @@ amp-img.circle img {
   -webkit-appearance: none
 }
 
-.discover-input-range::-webkit-slider-thumb {
+.travel-input-range::-webkit-slider-thumb {
   position: relative;
   width: 1.5rem;
   height: 1.5rem;
@@ -2248,11 +2250,11 @@ amp-img.circle img {
   -webkit-appearance: none
 }
 
-.discover-input-range:focus::-webkit-slider-thumb {
+.travel-input-range:focus::-webkit-slider-thumb {
   box-shadow: 0 .25rem .75rem rgba(50,58,67,.2),0 0 0 3px rgba(0,0,0,.25)
 }
 
-.discover-input-range::-moz-range-thumb {
+.travel-input-range::-moz-range-thumb {
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
@@ -2263,11 +2265,11 @@ amp-img.circle img {
   box-shadow: 0 .25rem .75rem rgba(50,58,67,.2)
 }
 
-.discover-input-range:focus::-moz-range-thumb {
+.travel-input-range:focus::-moz-range-thumb {
   box-shadow: 0 .25rem .75rem rgba(50,58,67,.2),0 0 0 3px rgba(0,0,0,.25)
 }
 
-.discover-input-range::-webkit-slider-runnable-track {
+.travel-input-range::-webkit-slider-runnable-track {
   margin-top: calc((1.5rem - 5px) * .5);
   margin-bottom: calc((1.5rem - 5px) * .5);
   height: 5px;
@@ -2276,30 +2278,30 @@ amp-img.circle img {
   background-color: #47b074
 }
 
-.discover-input-range::-moz-range-track {
+.travel-input-range::-moz-range-track {
   height: 5px;
   cursor: pointer;
   border-radius: calc(5px * .5);
   background-color: #47b074
 }
 
-.discover-input-range:focus {
+.travel-input-range:focus {
   outline: none
 }
 
-.discover-input-range::-moz-focus-outer {
+.travel-input-range::-moz-focus-outer {
   border: 0
 }
 
-.discover-input-range-shape {
+.travel-input-range-shape {
   color: #67e497
 }
 
-.discover-input-icon>.discover-input {
+.travel-input-icon>.travel-input {
   padding-left: calc(.5rem * 2.5 + 1.2em)
 }
 
-.discover-input-icon>.discover-input+.discover-icon {
+.travel-input-icon>.travel-input+.travel-icon {
   position: absolute;
   left: 0;
   top: 0;
@@ -2307,19 +2309,19 @@ amp-img.circle img {
   padding: .5rem 1rem
 }
 
-.discover-input-icon>.discover-input-big {
+.travel-input-icon>.travel-input-big {
   padding-left: calc(1.25rem * 1.5 + 1.2em)
 }
 
-.discover-input-icon>.discover-input-big+.discover-icon {
+.travel-input-icon>.travel-input-big+.travel-icon {
   padding: 1rem 1.25rem
 }
 
-.discover-input-icon>.discover-input-clear+.discover-icon,.discover-input-icon>.discover-input-dark+.discover-icon {
+.travel-input-icon>.travel-input-clear+.travel-icon,.travel-input-icon>.travel-input-dark+.travel-icon {
   color: hsla(0,0%,100%,.4)
 }
 
-.discover-input {
+.travel-input {
   padding: .5rem 1rem;
   line-height: 1.125rem;
   background-color: #fff;
@@ -2328,63 +2330,63 @@ amp-img.circle img {
   color: inherit
 }
 
-.discover-input:not(.border) {
+.travel-input:not(.border) {
   border-color: transparent
 }
 
-.discover-input-clear {
+.travel-input-clear {
   color: #fff;
   background: none;
   border-color: hsla(0,0%,100%,.4)
 }
 
-.discover-input-big {
+.travel-input-big {
   padding: 1rem 1.25rem
 }
 
-.discover-input-dark {
+.travel-input-dark {
   background: rgba(0,0,0,.2)
 }
 
-.discover-input::-webkit-input-placeholder {
+.travel-input::-webkit-input-placeholder {
   color: #8f98a3
 }
 
-.discover-input-dark::-webkit-input-placeholder {
+.travel-input-dark::-webkit-input-placeholder {
   color: currentColor;
   opacity: .75
 }
 
-.discover-input-clear::-webkit-input-placeholder {
+.travel-input-clear::-webkit-input-placeholder {
   color: inherit;
   opacity: .4
 }
 
-.discover-link,.discover-link:visited {
+.travel-link,.travel-link:visited {
   color: #8b58e3;
   text-decoration: none;
   font-family: inherit;
   transition: color .15s ease-in
 }
 
-.discover-link:hover {
+.travel-link:hover {
   color: #b99aef
 }
 
-.discover-link:focus {
+.travel-link:focus {
   outline: none;
   border-bottom: 2px solid rgba(50,58,67,.2)
 }
 
-.discover-link.gray,.discover-link.gray:visited {
+.travel-link.gray,.travel-link.gray:visited {
   color: #8f98a3
 }
 
-.discover-link.gray:hover {
+.travel-link.gray:hover {
   color: #b4b4b4
 }
 
-.discover-list-selector [option] {
+.travel-list-selector [option] {
   padding: 6px 12px;
   border-radius: 4px;
   background: #fff;
@@ -2392,113 +2394,113 @@ amp-img.circle img {
   margin-bottom: 3px
 }
 
-.discover-list-selector [option]:focus {
+.travel-list-selector [option]:focus {
   outline: none
 }
 
-.discover-list-selector [option][selected] {
+.travel-list-selector [option][selected] {
   cursor: pointer;
   outline: none;
   background: rgba(71,176,116,.2)
 }
 
-.discover-overlay-fx-scale {
+.travel-overlay-fx-scale {
   transition: transform .1s ease-out;
   transform-origin: 50vw 50vw
 }
 
-.discover-overlay-fx-scale.discover-overlay-fx-scale-active {
+.travel-overlay-fx-scale.travel-overlay-fx-scale-active {
   transition: transform .2s ease-out;
   transform: scale(.95)
 }
 
 @media (min-width:52.06rem) {
-  .discover-overlay-fx-scale.discover-overlay-fx-scale-active {
+  .travel-overlay-fx-scale.travel-overlay-fx-scale-active {
     transform: none
   }
 }
 
-.discover-pane {
+.travel-pane {
   position: relative;
   z-index: 1;
   pointer-events: none
 }
 
-.discover-pane-overflow {
+.travel-pane-overflow {
   opacity: 0;
   transition: opacity .1s
 }
 
-.discover-pane-content {
+.travel-pane-content {
   background-color: #fff;
   transform: translateY(-100%);
   transition: transform .1s ease-out
 }
 
-.discover-pane-visible .discover-pane-overflow {
+.travel-pane-visible .travel-pane-overflow {
   transition: opacity .2s;
   opacity: 1
 }
 
-.discover-pane-visible .discover-pane-content {
+.travel-pane-visible .travel-pane-content {
   transition: transform .2s ease-out;
   transform: translate(0);
   pointer-events: all
 }
 
-.discover-pill {
+.travel-pill {
   border-radius: 1em;
   padding: 2px 8px;
   color: #fff;
   background-color: #fb52a2
 }
 
-.discover-row-selector {
+.travel-row-selector {
   overflow-y: hidden;
   overflow-x: auto;
   white-space: nowrap
 }
 
-.discover-row-selector [option] {
+.travel-row-selector [option] {
   display: inline-block;
   color: #8f98a3;
   padding-top: 1rem
 }
 
-.discover-row-selector [option]:not(:last-of-type) {
+.travel-row-selector [option]:not(:last-of-type) {
   margin-right: 2rem
 }
 
-.discover-row-selector [option][selected] {
+.travel-row-selector [option][selected] {
   color: #47b074;
   cursor: pointer;
   outline: none
 }
 
-.discover-row-selector [option]:after {
+.travel-row-selector [option]:after {
   content: "\2022";
   display: block;
   text-align: center;
   opacity: 0
 }
 
-.discover-row-selector [option][selected]:after {
+.travel-row-selector [option][selected]:after {
   opacity: .5
 }
 
-.discover-row-selector [option]:focus {
+.travel-row-selector [option]:focus {
   outline: none
 }
 
-.discover-shadow,.discover-shadow-hover {
+.travel-shadow,.travel-shadow-hover {
   box-shadow: 0 .4rem 1.1rem rgba(50,58,67,.12)
 }
 
-.discover-shadow-hover {
+.travel-shadow-hover {
   transition: box-shadow .25s,transform .25s
 }
 
-.discover-shadow-hover:not([disabled]):focus,.discover-shadow-hover:not([disabled]):hover {
+.travel-shadow-hover:not([disabled]):focus,.travel-shadow-hover:not([disabled]):hover {
   transform: scale(1.02) translateY(-2%);
   box-shadow: 0 .4rem 2rem rgba(50,58,67,.4)
 }
@@ -2507,34 +2509,34 @@ amp-img.circle img {
   line-height: 1.4
 }
 
-.discover-city-selector {
+.travel-city-selector {
   margin: -6px
 }
 
-.discover-city-selector amp-selector {
+.travel-city-selector amp-selector {
   -ms-flex: auto;
   flex: auto
 }
 
-.discover-city-selector [option] {
+.travel-city-selector [option] {
   position: relative;
   padding: 6px;
   padding-right: 32px
 }
 
-.discover-city-selector [option],.discover-city-selector [option]>span {
+.travel-city-selector [option],.travel-city-selector [option]>span {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
   align-items: center
 }
 
-.discover-city-selector [option][selected] {
+.travel-city-selector [option][selected] {
   cursor: pointer;
   outline: none
 }
 
-.discover-city-selector [option] amp-img {
+.travel-city-selector [option] amp-img {
   width: 38px;
   height: 38px;
   margin-right: 10px;
@@ -2543,12 +2545,12 @@ amp-img.circle img {
   transition: transform .3s ease-in-out
 }
 
-.discover-city-selector [option] amp-img img {
+.travel-city-selector [option] amp-img img {
   opacity: .5;
   transition: opacity .15s step-start .15s,transform .15s step-start .15s
 }
 
-.discover-city-selector [option]:after,.discover-city-selector [option]:before {
+.travel-city-selector [option]:after,.travel-city-selector [option]:before {
   width: 18px;
   height: 18px;
   position: absolute;
@@ -2558,7 +2560,7 @@ amp-img.circle img {
   margin: auto
 }
 
-.discover-city-selector [option]:before {
+.travel-city-selector [option]:before {
   content: "";
   display: block;
   border-radius: 4px;
@@ -2566,13 +2568,13 @@ amp-img.circle img {
   transition: border-color .3s
 }
 
-.discover-city-selector [option]:focus:before {
+.travel-city-selector [option]:focus:before {
   border-color: #a480e3
 }
 
-.discover-city-selector [option]:after {
+.travel-city-selector [option]:after {
   content: "";
-  background: url(../../img/discover/icon/checkmark-purple.png) no-repeat 50% 50%;
+  background: url(../../img/travel/icon/checkmark-purple.png) no-repeat 50% 50%;
   background-size: contain;
   text-align: center;
   display: block;
@@ -2583,7 +2585,7 @@ amp-img.circle img {
   font-family: "sans-serif"
 }
 
-.discover-city-selector [option][selected]:after {
+.travel-city-selector [option][selected]:after {
   opacity: 1;
   -webkit-clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
   clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
@@ -2593,41 +2595,41 @@ amp-img.circle img {
   display: block
 }
 
-.discover-city-selector [option][selected] amp-img {
+.travel-city-selector [option][selected] amp-img {
   transform: rotateY(180deg)
 }
 
-.discover-city-selector [option][selected] amp-img img {
+.travel-city-selector [option][selected] amp-img img {
   opacity: 1;
   transform: scaleX(-1)
 }
 
-.discover-city-selector [option]:focus {
+.travel-city-selector [option]:focus {
   outline: none
 }
 
-.discover-city-selector-img {
+.travel-city-selector-img {
   transition: transform .3s
 }
 
-.discover-city-selector [option]:focus .discover-city-selector-img,.discover-city-selector [option]:hover .discover-city-selector-img {
+.travel-city-selector [option]:focus .travel-city-selector-img,.travel-city-selector [option]:hover .travel-city-selector-img {
   transform: scale(1.2)
 }
 
-.discover-filter-bar {
+.travel-filter-bar {
   animation: a .4s .05s ease-in-out both
 }
 
-.discover-filter-bar-collapse {
+.travel-filter-bar-collapse {
   height: 0;
   overflow: hidden
 }
 
-.discover-overlay-footer,.discover-overlay-header {
+.travel-overlay-footer,.travel-overlay-header {
   background-color: #fff
 }
 
-.discover-overlay-reset-btn {
+.travel-overlay-reset-btn {
   cursor: pointer;
   color: #8f98a3
 }
@@ -2652,7 +2654,7 @@ amp-img.circle img {
   }
 }
 
-.discover-filters-reset {
+.travel-filters-reset {
   animation: b .82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
@@ -2660,30 +2662,30 @@ amp-img.circle img {
   perspective: 1000px
 }
 
-.discover-filters-apply-btn {
+.travel-filters-apply-btn {
   background-color: #8b58e3;
   color: #fff
 }
 
-.discover-filters-reset-btn {
+.travel-filters-reset-btn {
   background-color: #fff;
   color: #323a43
 }
 
-.discover-filter-results-heading {
+.travel-filter-results-heading {
   color: #8f98a3;
   letter-spacing: .2em
 }
 
-.discover-filters-text {
+.travel-filters-text {
   color: #8f98a3
 }
 
-.discover-filters-results-text {
+.travel-filters-results-text {
   color: #8b58e3
 }
 
-.discover-icon {
+.travel-icon {
   display: inline-block;
   vertical-align: -23%;
   height: 1.2em;
@@ -2693,75 +2695,75 @@ amp-img.circle img {
   background-size: auto 1.2em
 }
 
-.discover-icon-logo {
+.travel-icon-logo {
   color: #fff
 }
 
-.discover-img-icon-checkmark-purple {
-  background-image: url(../../img/discover/icon/checkmark-purple.png)
+.travel-img-icon-checkmark-purple {
+  background-image: url(../../img/travel/icon/checkmark-purple.png)
 }
 
-.discover-img-icon-map-pin-outline-gray {
-  background-image: url(../../img/discover/icon/map-pin-outline-gray.png)
+.travel-img-icon-map-pin-outline-gray {
+  background-image: url(../../img/travel/icon/map-pin-outline-gray.png)
 }
 
-.discover-img-icon-map-pin-transparent {
-  background-image: url(../../img/discover/icon/map-pin-transparent.png)
+.travel-img-icon-map-pin-transparent {
+  background-image: url(../../img/travel/icon/map-pin-transparent.png)
 }
 
-.discover-img-icon-plane-landing-transparent {
-  background-image: url(../../img/discover/icon/plane-landing-transparent.png)
+.travel-img-icon-plane-landing-transparent {
+  background-image: url(../../img/travel/icon/plane-landing-transparent.png)
 }
 
-.discover-img-icon-plane-taking-off-transparent {
-  background-image: url(../../img/discover/icon/plane-taking-off-transparent.png)
+.travel-img-icon-plane-taking-off-transparent {
+  background-image: url(../../img/travel/icon/plane-taking-off-transparent.png)
 }
 
-.discover-img-icon-sad-face-gray {
-  background-image: url(../../img/discover/icon/sad-face-gray.png)
+.travel-img-icon-sad-face-gray {
+  background-image: url(../../img/travel/icon/sad-face-gray.png)
 }
 
-.discover-img-icon-star-green {
-  background-image: url(../../img/discover/icon/star-green.png)
+.travel-img-icon-star-green {
+  background-image: url(../../img/travel/icon/star-green.png)
 }
 
-.discover-img-icon-star-silver {
-  background-image: url(../../img/discover/icon/star-silver.png)
+.travel-img-icon-star-silver {
+  background-image: url(../../img/travel/icon/star-silver.png)
 }
 
-.discover-like-heart-solid {
+.travel-like-heart-solid {
   background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewbox='0 0 100 100'><path fill='%23FB52A2' d='M50,88.8652765 C76.6666667,70.4615567 90,53.8959001 90,39.1683068 C90,17.0769168 63.1171875,3.83663909 50,27.6306647 C38.875,3.83663909 10,17.0769168 10,39.1683068 C10,53.8959001 23.3333333,70.4615567 50,88.8652765 Z'/></svg>") no-repeat 50% 50%;
   background-size: contain;
   -ms-flex: 1;
   flex: 1
 }
 
-.discover-like-heart-white {
+.travel-like-heart-white {
   background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewbox='0 0 100 100'><path fill='white' d='M50,88.8652765 C76.6666667,70.4615567 90,53.8959001 90,39.1683068 C90,17.0769168 63.1171875,3.83663909 50,27.6306647 C38.875,3.83663909 10,17.0769168 10,39.1683068 C10,53.8959001 23.3333333,70.4615567 50,88.8652765 Z'/></svg>") no-repeat 50% 50%;
   background-size: contain;
   -ms-flex: 1;
   flex: 1
 }
 
-.discover-like-heart-outline {
+.travel-like-heart-outline {
   background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewbox='0 0 100 100'><path fill='none' stroke='white' stroke-width='5' d='M50,88.8652765 C76.6666667,70.4615567 90,53.8959001 90,39.1683068 C90,17.0769168 63.1171875,3.83663909 50,27.6306647 C38.875,3.83663909 10,17.0769168 10,39.1683068 C10,53.8959001 23.3333333,70.4615567 50,88.8652765 Z'/></svg>") no-repeat 50% 50%;
   background-size: contain;
   -ms-flex: 1;
   flex: 1
 }
 
-.discover-like input {
+.travel-like input {
   clip: rect(0 0 0 0)
 }
 
-.discover-like-hearts {
+.travel-like-hearts {
   width: 2rem;
   height: 2rem;
   background: rgba(0,0,0,.15);
   cursor: pointer
 }
 
-.discover-like-hearts:before {
+.travel-like-hearts:before {
   content: "";
   display: block;
   position: absolute;
@@ -2774,65 +2776,65 @@ amp-img.circle img {
   transform: scale(0)
 }
 
-.discover-like-heart-tiny {
+.travel-like-heart-tiny {
   width: 40%;
   height: 40%;
   opacity: 0
 }
 
-.discover-like-heart-tiny:first-child {
+.travel-like-heart-tiny:first-child {
   top: 10%;
   left: 55%;
   animation-delay: .15s
 }
 
-.discover-like-heart-tiny:nth-child(2) {
+.travel-like-heart-tiny:nth-child(2) {
   top: -5%;
   left: 30%;
   animation-delay: .25s
 }
 
-.discover-like-heart-tiny:nth-child(3) {
+.travel-like-heart-tiny:nth-child(3) {
   top: -25%;
   left: 65%;
   animation-delay: .32s
 }
 
-.discover-like-heart {
+.travel-like-heart {
   top: 12%;
   right: 12%;
   bottom: 12%;
   left: 12%
 }
 
-.discover-like-heart.discover-like-heart-solid,.discover-like-heart.discover-like-heart-white {
+.travel-like-heart.travel-like-heart-solid,.travel-like-heart.travel-like-heart-white {
   opacity: 0;
   transform: translateZ(0) scale(1)
 }
 
-.discover-like-heart.discover-like-heart-outline {
+.travel-like-heart.travel-like-heart-outline {
   transition: opacity .1s;
   transform: translateZ(0) scale(1)
 }
 
-.discover-like input:checked+.discover-like-hearts:before {
+.travel-like input:checked+.travel-like-hearts:before {
   animation: 1.2s e both
 }
 
-.discover-like input:checked+.discover-like-hearts>.discover-like-heart-tiny {
+.travel-like input:checked+.travel-like-hearts>.travel-like-heart-tiny {
   animation-duration: .6s;
   animation-name: f
 }
 
-.discover-like input:checked+.discover-like-hearts>.discover-like-heart.discover-like-heart-outline {
+.travel-like input:checked+.travel-like-hearts>.travel-like-heart.travel-like-heart-outline {
   opacity: 0
 }
 
-.discover-like input:checked+.discover-like-hearts>.discover-like-heart.discover-like-heart-solid {
+.travel-like input:checked+.travel-like-hearts>.travel-like-heart.travel-like-heart-solid {
   animation: 1.2s c both cubic-bezier(.445,.05,.55,.95)
 }
 
-.discover-like input:checked+.discover-like-hearts>.discover-like-heart.discover-like-heart-white {
+.travel-like input:checked+.travel-like-hearts>.travel-like-heart.travel-like-heart-white {
   animation: 1.2s d both
 }
 
@@ -2921,28 +2923,28 @@ amp-img.circle img {
   }
 }
 
-:root .discover-popular .discover-results-result {
+:root .travel-popular .travel-results-result {
   animation: none
 }
 
-.discover-popular-tilt-left,.discover-popular-tilt-right {
+.travel-popular-tilt-left,.travel-popular-tilt-right {
   display: inline-block;
   position: relative;
   perspective: 1000px;
   perspective-origin: 50% calc(100% + 4rem)
 }
 
-.discover-popular-tilt-left .discover-results-result {
+.travel-popular-tilt-left .travel-results-result {
   transform-origin: 0 0;
   transform: rotateY(-15deg)
 }
 
-.discover-popular-tilt-right .discover-results-result {
+.travel-popular-tilt-right .travel-results-result {
   transform-origin: 100% 0;
   transform: rotateY(15deg)
 }
 
-.discover-popular-tilt-left:before,.discover-popular-tilt-right:before {
+.travel-popular-tilt-left:before,.travel-popular-tilt-right:before {
   content: "";
   display: block;
   position: absolute;
@@ -2953,66 +2955,66 @@ amp-img.circle img {
   box-shadow: 0 0 2.2rem 2.2rem rgba(50,58,67,.2)
 }
 
-.discover-popular-tilt-left:before {
+.travel-popular-tilt-left:before {
   transform-origin: 2rem calc(100% + 2rem);
   transform: translateY(.28rem) rotate(2.5deg)
 }
 
-.discover-popular-tilt-right:before {
+.travel-popular-tilt-right:before {
   transform-origin: calc(100% + 2rem) calc(100% + 2rem);
   transform: translateY(.28rem) rotate(-2.5deg)
 }
 
-.discover-results-result {
+.travel-results-result {
   animation: a .4s ease-in-out both;
   animation-delay: .11s
 }
 
-.discover-results-result-link {
+.travel-results-result-link {
   border-radius: 4px
 }
 
-.discover-results-result-link amp-img {
+.travel-results-result-link amp-img {
   background-color: #e3e5e8
 }
 
-.discover-results-result-text {
+.travel-results-result-text {
   color: #323a43
 }
 
-.discover-results-result-subtext {
+.travel-results-result-subtext {
   color: #8f98a3
 }
 
-.discover-results-result-stars {
+.travel-results-result-stars {
   color: #e3e5e8
 }
 
-.discover-results-result-stars.green {
+.travel-results-result-stars.green {
   color: #47b074
 }
 
-.discover-results-result-flags,.discover-results-result-like {
+.travel-results-result-flags,.travel-results-result-like {
   pointer-events: none
 }
 
-.discover-results-result-flags>*,.discover-results-result-like>* {
+.travel-results-result-flags>*,.travel-results-result-like>* {
   pointer-events: all
 }
 
-.discover-results-result-flags,.discover-results-result-like,.discover-results-result-link {
+.travel-results-result-flags,.travel-results-result-like,.travel-results-result-link {
   transition: transform .2s
 }
 
-.discover-results-result-link:focus,.discover-results-result:hover .discover-results-result-link {
+.travel-results-result-link:focus,.travel-results-result:hover .travel-results-result-link {
   outline: none
 }
 
-.discover-results-result-link:focus,.discover-results-result-link:focus~.discover-results-result-flags,.discover-results-result-link:focus~.discover-results-result-like,.discover-results-result:hover .discover-results-result-flags,.discover-results-result:hover .discover-results-result-like,.discover-results-result:hover .discover-results-result-link {
+.travel-results-result-link:focus,.travel-results-result-link:focus~.travel-results-result-flags,.travel-results-result-link:focus~.travel-results-result-like,.travel-results-result:hover .travel-results-result-flags,.travel-results-result:hover .travel-results-result-like,.travel-results-result:hover .travel-results-result-link {
   transform: translateY(-.5rem)
 }
 
-.discover-results-navbar {
+.travel-results-navbar {
   margin-top: -4rem;
   margin-right: -4rem;
   margin-left: -4rem;
@@ -3021,48 +3023,48 @@ amp-img.circle img {
   animation: a .4s ease-in-out both
 }
 
-.discover-results-navbar-icon {
+.travel-results-navbar-icon {
   line-height: 1
 }
 
-.discover-results-navbar-subheading {
+.travel-results-navbar-subheading {
   letter-spacing: .2em
 }
 
 @media (min-width:52.06rem) {
-  .discover-results-navbar-icon {
+  .travel-results-navbar-icon {
     line-height: inherit
   }
 }
 
-.discover-search {
+.travel-search {
   background-color: #8b58e3
 }
 
-.discover-search-heading {
+.travel-search-heading {
   color: #fff
 }
 
-.discover-search .discover-link {
+.travel-search .travel-link {
   background-color: #fff
 }
 
 @media (min-width:40.06rem) {
-  .discover-header .discover-icon-logo {
+  .travel-header .travel-icon-logo {
     margin: inherit
   }
 }
 
-.discover-type-selector {
+.travel-type-selector {
   margin: -6px
 }
 
-.discover-type-selector [option] {
+.travel-type-selector [option] {
   padding: 6px;
   position: relative
 }
 
-.discover-type-selector-active,.discover-type-selector-inactive {
+.travel-type-selector-active,.travel-type-selector-inactive {
   height: 38px;
   padding-left: 12px;
   padding-right: 10px;
@@ -3073,19 +3075,19 @@ amp-img.circle img {
   transition: border-color .3s
 }
 
-.discover-type-selector [option]:focus .discover-type-selector-inactive,.discover-type-selector [option][selected] .discover-type-selector-inactive {
+.travel-type-selector [option]:focus .travel-type-selector-inactive,.travel-type-selector [option][selected] .travel-type-selector-inactive {
   border-color: currentColor
 }
 
-.discover-type-selector [option]:focus:not(:hover) .discover-type-selector-active {
+.travel-type-selector [option]:focus:not(:hover) .travel-type-selector-active {
   border-color: rgba(0,0,0,.25)
 }
 
-.discover-type-selector-active {
+.travel-type-selector-active {
   transition-delay: .3s
 }
 
-.discover-type-selector-active:after,.discover-type-selector-inactive:after {
+.travel-type-selector-active:after,.travel-type-selector-inactive:after {
   content: "+";
   display: block;
   width: 1rem;
@@ -3096,17 +3098,17 @@ amp-img.circle img {
   transition: transform .1s ease-out
 }
 
-.discover-type-selector-content {
+.travel-type-selector-content {
   overflow: hidden;
   text-overflow: ellipsis
 }
 
-.discover-type-selector [option] svg.discover-icon {
+.travel-type-selector [option] svg.travel-icon {
   margin-right: 10px;
   transition: transform .3s
 }
 
-.discover-type-selector-active {
+.travel-type-selector-active {
   margin-top: 6px;
   margin-left: 6px;
   background: currentColor;
@@ -3119,41 +3121,41 @@ amp-img.circle img {
   transition: clip-path .4s,opacity .4s,-webkit-clip-path .4s
 }
 
-.discover-type-selector [option]:hover .discover-type-selector-active {
+.travel-type-selector [option]:hover .travel-type-selector-active {
   opacity: .75;
   -webkit-clip-path: circle(40px at 0 50%);
   clip-path: circle(40px at 0 50%)
 }
 
-.discover-type-selector [option][selected] .discover-type-selector-active,.discover-type-selector [option][selected]:hover .discover-type-selector-active {
+.travel-type-selector [option][selected] .travel-type-selector-active,.travel-type-selector [option][selected]:hover .travel-type-selector-active {
   opacity: 1;
   -webkit-clip-path: circle(142% at 0 50%);
   clip-path: circle(142% at 0 50%)
 }
 
-.discover-type-selector [option][selected]:hover .discover-type-selector-active {
+.travel-type-selector [option][selected]:hover .travel-type-selector-active {
   opacity: 1;
   -webkit-clip-path: circle(calc(142% - 36px) at 0 50%);
   clip-path: circle(calc(142% - 36px) at 0 50%)
 }
 
-.discover-type-selector-active .discover-type-selector-content,.discover-type-selector-active:after {
+.travel-type-selector-active .travel-type-selector-content,.travel-type-selector-active:after {
   color: #fff
 }
 
-.discover-type-selector [option][selected] {
+.travel-type-selector [option][selected] {
   outline: none;
   cursor: pointer
 }
 
-.discover-type-selector [option]:hover .discover-type-selector-active:after,.discover-type-selector [option]:hover .discover-type-selector-inactive:after,.discover-type-selector [option][selected] .discover-type-selector-active:after,.discover-type-selector [option][selected] .discover-type-selector-inactive:after {
+.travel-type-selector [option]:hover .travel-type-selector-active:after,.travel-type-selector [option]:hover .travel-type-selector-inactive:after,.travel-type-selector [option][selected] .travel-type-selector-active:after,.travel-type-selector [option][selected] .travel-type-selector-inactive:after {
   transform: rotate(45deg)
 }
 
-.discover-type-selector [option][selected]:hover:not(:focus) .discover-type-selector-active:after,.discover-type-selector [option][selected]:hover:not(:focus) .discover-type-selector-inactive:after {
+.travel-type-selector [option][selected]:hover:not(:focus) .travel-type-selector-active:after,.travel-type-selector [option][selected]:hover:not(:focus) .travel-type-selector-inactive:after {
   transform: rotate(0deg)
 }
 
-.discover-type-selector [option]:focus {
+.travel-type-selector [option]:focus {
   outline: none
 }
