@@ -52,7 +52,7 @@ public class MessageFeedServlet extends HttpServlet{
         String currentName = paramNames.nextElement();
         paramMap.put(currentName,request.getParameter(currentName));
     }
-    YelpQuery query = new YelpQuery("nHhrlF_fSJVeSago5RBBPT4Pm_My-QczgCQl7f1d0jMaicWX4eHG6RefrcuAn_HhXRp3sm-c1DR7M-iK7g1M7HCMklsQPQB4KJvh5w0qzv-T6dIDNifo_mxtam-YXHYx",paramMap);
+    YelpQuery query = new YelpQuery(paramMap);
     String json = "";
     try {
       json = query.createQuery();//gson.toJson(messages);

@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.io.File;
+
 
 import java.net.URL;
 import java.net.URLConnection;
@@ -35,15 +37,16 @@ public class YelpQuery {
   private Map<String, String> params;
 
   public YelpQuery() throws IOException {
-    this.apiKey = "nHhrlF_fSJVeSago5RBBPT4Pm_My-QczgCQl7f1d0jMaicWX4eHG6RefrcuAn_HhXRp3sm-c1DR7M-iK7g1M7HCMklsQPQB4KJvh5w0qzv-T6dIDNifo_mxtam-YXHYx";//readFile("api.key");
+    this.apiKey = readFile(new File("api.key").getAbsolutePath());
     this.params = new HashMap<String, String>() {{ 
       put("location", "Chicago");
       put("term", "ice cream");
     }};
   }
  
-  public YelpQuery(String apiKey, HashMap<String, String> params) throws IOException {
-    this.apiKey = apiKey;
+  public YelpQuery(HashMap<String, String> params) throws IOException {
+    this.apiKey = readFile(new File("api.key").getAbsolutePath());
+
     this.params = params;
   }
 
