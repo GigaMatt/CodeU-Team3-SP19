@@ -34,45 +34,87 @@
       var infowindow;
       var currLoc;
       var type;
+      var locs = 'new york'; // locs = localStorage.getItem("cityVal")
+
 
       async function initMap() {
+        service = new google.maps.places.PlacesService(map);
         currLoc = new google.maps.LatLng(37.4219999,-122.0862515);
-
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: currLoc,
-            zoom: 15
+        //if (localStorage.getItem("fromDiscover") == "true") {
+        if (false) {
+          var ny = { lat: 40.7540529, lng: -73.9948338}; 
+          map = new google.maps.Map(document.getElementById('map'), {
+              center: currLoc,
+              zoom: 14
           });
+          getPlaceSearch(locs);
+          map.setCenter(ny);
+          requestTextSearch(map.getCenter());
+          
 
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            map.setCenter(pos);
+        } else {
+          map = new google.maps.Map(document.getElementById('map'), {
+              center: currLoc,
+              zoom: 15
+            });
+
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+              map.setCenter(pos);
+              type = 'restaurant';
+              requestNearbySearch(type);
+              
+            }, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+            });
+          } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+            var pos = { lat: 37.4219999, lng: -122.0862515}; //user input aqui eventualmente
             type = 'restaurant';
             requestNearbySearch(type);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-          var pos = { lat: 37.4219999, lng: -122.0862515}; //user input aqui eventualmente
-          request();
+          }          
         }
-
-        service = new google.maps.places.PlacesService(map);
       }
 
-      function requestNearbySearch(type) {
+      function requestNearbySearch(typePlace) {
         var request = {
           location: map.getCenter(),
           radius: '2500',
-          type: [type]
+          type: [typePlace]
         };
+        service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, callback);
       }
+
+      function requestTextSearch(loc) { 
+        var request = {
+          location: loc,
+          radius: '1000',
+          query: 'places in ' + locs
+        };
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+      }
+
+      function getPlaceSearch(locs) {
+        var request = {
+            query: locs,
+            fields: ['name']
+          }
+          service.findPlaceFromQuery(request, function(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              for (var i = 0; i < results.length; i++) {
+              createMarker(results[i]);
+              }
+             map.setCenter(results[0].geometry.location);
+            }
+          });
+      }      
 
       function callback(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
