@@ -41,14 +41,13 @@
         service = new google.maps.places.PlacesService(map);
         currLoc = new google.maps.LatLng(37.4219999,-122.0862515);
         //if (localStorage.getItem("fromDiscover") == "true") {
-        if (false) {
+        if (true) {
           var ny = { lat: 40.7540529, lng: -73.9948338}; 
           map = new google.maps.Map(document.getElementById('map'), {
               center: currLoc,
               zoom: 14
           });
           getPlaceSearch(locs);
-          map.setCenter(ny);
           requestTextSearch(map.getCenter());
           
 
@@ -104,8 +103,9 @@
       function getPlaceSearch(locs) {
         var request = {
             query: locs,
-            fields: ['name']
+            fields: ['name','geometry']
           }
+          service = new google.maps.places.PlacesService(map);
           service.findPlaceFromQuery(request, function(results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
               for (var i = 0; i < results.length; i++) {
