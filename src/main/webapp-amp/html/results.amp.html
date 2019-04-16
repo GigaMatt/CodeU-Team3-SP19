@@ -50,7 +50,8 @@
               lng: position.coords.longitude
             };
             map.setCenter(pos);
-            request();
+            type = 'restaurant';
+            requestNearbySearch(type);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -64,7 +65,7 @@
         service = new google.maps.places.PlacesService(map);
       }
 
-      function request(type) {
+      function requestNearbySearch(type) {
         var request = {
           location: map.getCenter(),
           radius: '2500',
@@ -831,23 +832,11 @@
 <!--/ Results -->
 
 
-<<<<<<< HEAD
-<!-- showing-map-results -->
-    <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Vlck6aVee3BZB89cNHspl_DxQglae_Y&libraries=places&callback=initMap" async defer></script>
-<!--/ showing-map-results -->
-
-        </div>
-      </div>
-    </div>
-=======
 <!-- maps showing results -->
     <div id="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Vlck6aVee3BZB89cNHspl_DxQglae_Y&libraries=places&callback=initMap" async defer></script>
 <!--/ maps showing results -->
 
 
-
->>>>>>> 3b4f68a2d975701fcabb55317056ae4aa5c36372
   </body>
 </html>
