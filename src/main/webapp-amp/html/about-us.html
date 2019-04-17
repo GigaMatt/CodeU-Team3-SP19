@@ -1,0 +1,152 @@
+<!--
+Copyright 2019 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!doctype html>
+<html ⚡="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bio Page</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <meta name="amp-google-client-id-api" content="googleanalytics">
+
+  <script async="" src="https://cdn.ampproject.org/v0.js"></script>
+
+  <style amp-boilerplate="">body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate="">body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+
+  <script custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js" async=""></script>
+  <script custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async=""></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Rubik:300" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/navigation-loader.js"></script>
+</head>
+  <body onload="addLoginOrLogoutLinkToNavigation();">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+              <a class="navbar-brand" href="#">CSTOTS</a>
+        </div>
+        <ul class="nav navbar-nav" id="navigation">
+        <li class="active"><a href="/">Home</a></li>
+      </ul>
+      </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid text-center">
+      <div class="container">
+        <h1>Welcome to CS Tots</h1> 
+        <p>Meet the team!</p> 
+      </div>
+      <div class="container">
+        <form class="form-inline">
+          <div class="input-group">
+            <input type="search" class="form-control" size="50" placeholder="Search" required>
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h2>CS TOTS MEMBERS</h2>
+        </div>
+      </div>
+      <!--TOP ROW-->
+      <div class="row">
+         <!--MATT BIO-->
+          <div class="col-sm-6">
+            <div class ="row">
+              <div class= "col-sm-6 text-center">
+                  <amp-img src="../img/bio/mattBio.jpg" alt="Matt's Bio Picture" height="230" width="230" class="bioPic"></amp-img>
+                  <h3>MATTHEW MONTOYA</h3>
+                  <h4>STUDENT</h4>
+                  <p>Born & raised along the U.S.-Mexico Border, Matthew is a third-year CS student at the University of Texas at El Paso. Following his undergraduate studies, Matthew hopes to use his passion in CS + AI to help revolutionize healthcare for millions of low-income families across North America.</p>
+                </div>
+              </div>
+          </div>
+          <!--SARAH BIO-->
+          <div class="col-sm-6">
+              <div class="row">
+                <div class= "col-sm-6 text-center">
+                  <amp-img src="../img/bio/SarahBioPic.png" alt="Sarah's Bio Picture" height="230" width="230" class="bioPic"></amp-img>
+                  <h3>SARAH CHITTY</h3>
+                  <h4>STUDENT</h4>
+                  <p>She is an Alabama native who attends Washington University in Saint Louis. She is a Computer Science and Entreprenuership Double major. Along with a passion for web development, she enjoys supporting her universitiy's women in STEM. She also enjoys spending her time hking and experiencing the outdoors.</p>
+                </div>
+              </div>
+          </div>
+      </div>
+    <br/>
+    <!--BOTTOM ROW-->
+      <div class="row">
+          <!--ROBBIE BIO-->
+          <div class="col-sm-6">
+              <div class ="row">
+                <div class= "col-sm-6 text-center">
+                    <amp-img src="../img/bio/robbieBioPic.png" alt="Robbie's Bio Picture" height="230" width="230" class="bioPic"></amp-img>
+                    <h3>ROBBIE GONZALEZ-GARZA</h3>
+                    <h4>STUDENT</h4>
+                    <p>Roberta is a computer science student in ITESM in Monterrey, Mexico. She's coursing her 4th semester and likes being involved in student groups surrounding stem, she's also passionate about supporting women in tech and trying new technologies. Her experience in codeU so far has been amazing and she feels very lucky to be a part of this project</p>
+                  </div>
+                </div>
+            </div>
+            <!--ALEX BIO-->
+            <div class="col-sm-6">
+                <div class ="row">
+                  <div class= "col-sm-6 text-center">
+                      <amp-img src="../img/bio/alexanderBio.png" alt="Alex's Bio Picture" height="230" width="230" class="bioPic"></amp-img>
+                      <h3>ALEXANDER O'KENNARD</h3>
+                      <h4>STUDENT</h4>
+                      <p>Alex is a Junior in computer science at the University of Illinois Urbana-Champaign. He focuses mainly on low level/system programming and making automation related tools for his family, friends and community. 
+                          For CodeU, he works on Yelp API integration and miscellaneous Java tasks.</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+    </div>
+      <div class="row text-center">
+        <div class="col-sm-12 vis">
+          <h2>OUR VISION</h2>
+          <br/>
+          <h4>We are trying to create an opportunity for the people looking to experience the inner city behind the conventional attractions.</h4>
+          <div class="row">
+            <div class="col-sm-4">
+              <div><amp-img src="../img/bio/photo-camera.png" alt="plane" height="100" width="100"></amp-img></div>
+              <p>Want to avoid tourist traps?</p>
+            </div>
+            <div class="col-sm-4">
+              <div><amp-img src="../img/bio/black-plane.png" alt="plane" height="100" width="100"></amp-img></div>
+              <p>Travelers looking for what the "locals recommend"</p>
+            </div>
+            <div class="col-sm-4">
+              <div><amp-img src="../img/bio/smartphone.png" alt="phone" height="100" width="100"></amp-img></div>
+              <p>Looking to stay up to date with a fresh scene?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

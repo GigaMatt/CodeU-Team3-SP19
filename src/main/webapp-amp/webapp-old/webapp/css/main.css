@@ -13,20 +13,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /* Prevent the page from becoming too wide. */
 body {
-  max-width: 600px;
+  /*max-width: 600px;*/
+  font-family: 'Rubik', sans-serif;
 }
-
+nav{
+  border: 0px;
+  margin-bottom: 10px;
+}
 /* Remove bullet points from navigation bar. */
 nav ul {
   list-style-type: none;
   padding-left: 0;
 }
-
 /* Keep navigation menu on one line. */
 nav li {
   display: inline-block;
   margin-right: 10px
+}
+.jumbotron{
+  background: rgb(240,240,240);
+  background: linear-gradient(90deg, rgba(240,240,240,1) 22%, rgba(121,152,176,1) 94%);
+}
+.jumbotron h1{
+  color: black;
+  font-size: 55px;
+  font-weight: 100;
+  margin-top: 90px;
+}
+h1{
+  font-family: 'Helvetica', sans-serif;
+}
+h2{
+  font-family: 'Helvetica', sans-serif;
+  font-size: 32px;
+  font-weight: 200;
+}
+h3,h4 {
+  font-weight: 200;
+}
+.vis{
+  background-color: rgb(179, 199, 214);
 }
