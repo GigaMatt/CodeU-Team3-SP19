@@ -34,22 +34,22 @@
       var infowindow;
       var currLoc;
       var type;
-      var locs = localStorage.getItem("cityVal")
+      var locs;
 
 
       async function initMap() {
+        urlParams = new URLSearchParams(window.location.search);
+        fromDiscovery = urlParams.get('fromDiscovery');
+        locs = urlParams.get('city_val');
         service = new google.maps.places.PlacesService(map);
         currLoc = new google.maps.LatLng(37.4219999,-122.0862515);
-        //if (localStorage.getItem("fromDiscover") == "true") {
-        if (true) {
+        if (fromDiscovery) {
           map = new google.maps.Map(document.getElementById('map'), {
               center: currLoc,
               zoom: 14
           });
           getPlaceSearch(locs);
-          requestTextSearch(map.getCenter());
-          
-
+          requestTextSearch(map.getCenter());          
         } else {
           map = new google.maps.Map(document.getElementById('map'), {
               center: currLoc,
