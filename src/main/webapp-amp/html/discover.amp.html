@@ -467,35 +467,16 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
 <section class="discover-search py4 xs-hide sm-hide relative">
   <div class="px1 md-px2 pb1 relative">
     <h3 class="discover-search-heading discover-spacing-none h1 bold mb2 center">Have a specific destination in mind?</h3>
-
-    <div class="flex justify-center pb2">
-      <div class="discover-input-group flex items-center col-8">
-          <input class="discover-input discover-input-big line-height-2 block col-12 flex-auto rounded-left" type="text" name="query" placeholder="What community would you like to explore?" on="change:AMP.setState({fields_query: event.value})" value="" [value]="fields_query">
-          <span class="discover-input-group-sep discover-border-gray relative z1 block"></span>
-          <a href="discover-results.amp" class="discover-link discover-input discover-input-big line-height-2 link rounded-right nowrap text-decoration-none" on="
-              tap:AMP.setState({
-                  ui_reset: false,
-                  ui_filterPane: false,
-                  query_query: fields_query,
-                  fields_query_edited: false,
-                  query_departure: fields_departure,
-                  fields_departure_edited: false,
-                  query_return: fields_return,
-                  fields_return_edited: false,
-                  query_maxPrice: fields_maxPrice,
-                  fields_maxPrice_edited: false,
-                  query_city: fields_city,
-                  fields_city_edited: false,
-                  query_type: fields_type,
-                  fields_type_edited: false,
-                  query_sort: fields_sort,
-                  fields_sort_edited: false,
-              })
-            ">
-            Find local attractions
-          </a>
-      </div>
-    </div>
+		<form action="results.amp.html">
+			<div class="flex justify-center pb2">
+				<div class="discover-input-group flex items-center col-8">
+		      	  <input type="hidden" name="fromDiscovery" value="true"> 
+			      <input class="discover-input discover-input-big line-height-2 block col-12 flex-auto rounded-left" type="text" name="city_val" placeholder="What community would you like to explore?" value="" [value]="fields_query">
+          			<span class="discover-input-group-sep discover-border-gray relative z1 block"></span>
+			      	<input type="submit" value="Find Local Attractions" href="results.amp.html" class="discover-link discover-input discover-input-big line-height-2 link rounded-right nowrap text-decoration-none">
+			      	</div>
+    			</div>
+		</form>   
   </div>
 </section>
 <!--/ Search -->
