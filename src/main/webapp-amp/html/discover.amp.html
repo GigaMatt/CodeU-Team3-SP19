@@ -116,7 +116,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
       <!-- Search Form -->
       <div class="discover-local-search">
         <label class="discover-input-icon discover-shadow flex col-12 relative rounded">
-          <input class="discover-input discover-input-big discover-input-clear border block col-12 rounded" list="locations" type="text" name="query" placeholder="What community would you like to explore?" on="
+          <input class="discover-input discover-input-big discover-input-clear border block col-12 rounded" list="locations" type="text" name="location" placeholder="What community would you like to explore?" on="
               change:AMP.setState({
                 fields_query: event.value,
                 fields_query_live: event.value,
@@ -141,8 +141,8 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
                   on="change:AMP.setState({
                     products: {
                     searchColor: event.checked == true ? 'fivemi' : '',
-                    <!-- listSrc: '/samples_templates/products?searchProduct='+ products.searchProduct +'&sort='+ products.sortChoiceValue +'&searchColor='+ (event.checked == true ? 'yellow' : '') +'&_=RANDOM'
-                    } --!>
+                    listSrc: '/samples_templates/products?searchProduct='+ products.searchProduct +'&sort='+ products.sortChoiceValue +'&searchColor='+ (event.checked == true ? 'yellow' : '') +'&_=RANDOM'
+                    }
                     })" > 
                     5 miles </label>
             </div>
