@@ -34,7 +34,7 @@
       var infowindow;
       var currLoc;
       var type;
-      var locs = 'new york'; // locs = localStorage.getItem("cityVal")
+      var locs = localStorage.getItem("cityVal")
 
 
       async function initMap() {
@@ -42,7 +42,6 @@
         currLoc = new google.maps.LatLng(37.4219999,-122.0862515);
         //if (localStorage.getItem("fromDiscover") == "true") {
         if (true) {
-          var ny = { lat: 40.7540529, lng: -73.9948338}; 
           map = new google.maps.Map(document.getElementById('map'), {
               center: currLoc,
               zoom: 14
