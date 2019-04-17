@@ -6,7 +6,9 @@
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%
 }
-
+.refine label{
+  color: #fff !important;
+}
 body {
   margin: 0
 }
@@ -19,7 +21,6 @@ h1 {
   font-size: 2em;
   margin: .67em 0
 }
-
 figcaption,figure,main {
   display: block
 }

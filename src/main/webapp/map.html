@@ -1,38 +1,104 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>UFO Sightings</title>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRvbq-_BuMB_FcaI8EdJHlKdRKx-CxQoQ"></script>
-  <script>  
-    function createUfoSightingsMap(){
-      fetch('/ufo-data').then(function(response) {
-        return response.json();
-      }).then((ufoSightings) => {
-          
-        const map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 35.78613674, lng: -119.4491591},
-          zoom:7
+   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Vlck6aVee3BZB89cNHspl_DxQglae_Y&libraries=places"></script>
+   <head>
+    <title>Place Searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 425px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+
+      var map;
+      var service;
+      var infowindow;
+      var currLoc;
+
+      async function initMap() {
+        currLoc = new google.maps.LatLng(37.4219999,-122.0862515);
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: currLoc,
+            zoom: 15
+          });
+
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            map.setCenter(pos);
+            request();
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+          var pos = { lat: 37.4219999, lng: -122.0862515}; //user input aqui eventualmente
+          request();
+        }
+
+        service = new google.maps.places.PlacesService(map);
+      }
+
+      function request() {
+        var request = {
+          location: map.getCenter(),
+          radius: '2500',
+          type: ['ice cream']
+        };
+        service.nearbySearch(request, callback);
+      }
+
+      function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            var place = results[i];
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function sleep(ms) {
+          return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      function createMarker(place) {
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
         });
 
-        ufoSightings.forEach((ufoSighting) => {
-          new google.maps.Marker({
-            position: {lat: ufoSighting.lat, lng: ufoSighting.lng},
-            map: map
-          });  
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
         });
-      });
-    }
-  </script>
-  <style>
-    #map{
-      width: 500px;
-      height: 500px;
-    }
-  </style>
-</head>
-<body onload="createUfoSightingsMap();">
- <h1>UFO Sightings</h1>
- <div id="map"></div>
-</body>
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+          infoWindow.setPosition(pos);
+          infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+          infoWindow.open(map);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Vlck6aVee3BZB89cNHspl_DxQglae_Y&libraries=places&callback=initMap" async defer></script>
+  </body>
 </html>
-
