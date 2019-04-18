@@ -41,6 +41,7 @@
         urlParams = new URLSearchParams(window.location.search);
         fromDiscovery = urlParams.get('fromDiscovery');
         locs = urlParams.get('city_val');
+        type = urlParams.get('filter');
         service = new google.maps.places.PlacesService(map);
         currLoc = new google.maps.LatLng(37.4219999,-122.0862515);
         if (fromDiscovery) {
@@ -63,8 +64,13 @@
                 lng: position.coords.longitude
               };
               map.setCenter(pos);
-              type = 'restaurant';
-              requestNearbySearch(type);
+              if (type != null) {
+                requestNearbySearch(type);
+              } else {
+                service = new google.maps.places.PlacesService(map);
+              }
+              
+
               
             }, function() {
               handleLocationError(true, infoWindow, map.getCenter());
@@ -73,7 +79,6 @@
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
             var pos = { lat: 37.4219999, lng: -122.0862515}; //user input aqui eventualmente
-            type = 'restaurant';
             requestNearbySearch(type);
           }          
         }
