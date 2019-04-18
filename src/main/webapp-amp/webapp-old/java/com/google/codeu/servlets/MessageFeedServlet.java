@@ -23,7 +23,7 @@ import com.google.codeu.api.YelpQuery;
 /**
  * Handles fetching all messages for the public feed.
  */
-@WebServlet("/feed")
+@WebServlet("/results.amp")
 public class MessageFeedServlet extends HttpServlet{
   
   private Datastore datastore;
@@ -44,8 +44,8 @@ public class MessageFeedServlet extends HttpServlet{
     response.setCharacterEncoding("UTF-8"); 
     List<Message> messages = datastore.getAllMessages();
     Gson gson = new Gson();
-    String term = request.getParameter("term");
-    String location = request.getParameter("location");
+    String term = request.getParameter("filter");
+    String location = request.getParameter("city_val");
     HashMap<String, String> paramMap = new HashMap<String, String>();
     Enumeration<String> paramNames = request.getParameterNames();
     while(paramNames.hasMoreElements()) {

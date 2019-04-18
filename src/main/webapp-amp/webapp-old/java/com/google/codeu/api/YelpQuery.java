@@ -2,6 +2,9 @@ package com.google.codeu.api;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.HashSet;
+
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -36,11 +39,38 @@ public class YelpQuery {
   private String apiKey;
   private Map<String, String> params;
 
+  private Set<String> validParams;
+  private Map<String, String> radiusMap;
+  private Map<String, String> priceMap; 
+
   public YelpQuery() throws IOException {
     this.apiKey = readFile(new File("api.key").getAbsolutePath());
     this.params = new HashMap<String, String>() {{ 
       put("location", "Chicago");
       put("term", "ice cream");
+    }};
+
+    this.validParams = new HashSet<String>() {{
+      add("term"); add("location"); add("latitude");
+      add("longitude"); add("radius"); add("categories");
+      add("locale"); add("limit"); add("offset");
+      add("sort_by"); add("price"); add("open_now");
+      add("open_at"); add("attributes");
+      
+    }}; 
+    // miles to meters
+    this.radiusMap = new HashMap<String, String>() {{
+      put("fivemi", "8046"); 
+      put("tenmi", "16093");
+      put("twentymi", "31286"); // capped at max
+      put("none", "40000"); // Max radius value
+    }};
+  
+    this.priceMap = new HashMap<String, String>() {{
+      put("cheap", "$");
+      put("averagecost", "$$");
+      put("expensive", "$$$");
+      put("veryexpensive", "$$$$"); 
     }};
   }
  
@@ -48,6 +78,28 @@ public class YelpQuery {
     this.apiKey = readFile(new File("api.key").getAbsolutePath());
 
     this.params = params;
+
+    this.validParams = new HashSet<String>() {{
+      add("term"); add("location"); add("latitude");
+      add("longitude"); add("radius"); add("categories");
+      add("locale"); add("limit"); add("offset");
+      add("sort_by"); add("price"); add("open_now");
+      add("open_at"); add("attributes");
+      
+    }}; 
+    this.radiusMap = new HashMap<String, String>() {{
+      put("fivemi", "8046"); 
+      put("tenmi", "16093");
+      put("twentymi", "31286"); // capped at max
+      put("none", "40000"); // Max radius value
+    }};
+  
+    this.priceMap = new HashMap<String, String>() {{
+      put("cheap", "$");
+      put("averagecost", "$$");
+      put("expensive", "$$$");
+      put("veryexpensive", "$$$$"); 
+    }};
   }
 
   // just uses basic business search; https://www.yelp.com/developers/documentation/v3/business_search
@@ -56,9 +108,26 @@ public class YelpQuery {
     HttpParams params = new BasicHttpParams();
     HttpClient httpClient = new DefaultHttpClient(params);
     builder.setScheme("https").setHost("api.yelp.com").setPath("/v3/businesses/search");
-    // Adding parameters to search string: TODO error checking. note, we need a location here in the parameters at least.
+    // Adding parameters to search string: note, we need a location here in the parameters at least.
     for(Map.Entry<String, String> entry : this.params.entrySet()) {
-      builder.setParameter(entry.getKey(), entry.getValue());
+      if(this.validParams.contains(entry.getKey())) {
+        builder.setParameter(entry.getKey(), entry.getValue());
+      }
+      else if(entry.getKey().equals("filter")) {
+        builder.setParameter("term", entry.getValue());
+      }
+      else if(entry.getKey().equals("city_val")) { // A case where we need to convert from Google Maps API name to Yelp name
+        builder.setParameter("location", entry.getValue());
+      }
+      else if(entry.getKey().equals("priceFilter")) {
+        String priceName = entry.getValue();
+        String priceValue = this.priceMap.get(priceName); // TODO make this map
+        builder.setParameter("price", priceValue);
+      }
+      else if(entry.getKey().equals("radiusFilter")) {
+        String radiusValue = this.radiusMap.get(entry.getValue());
+        builder.setParameter("radius", radiusValue);
+      }
     }
     
     HttpGet httpget = new HttpGet(builder.build());
