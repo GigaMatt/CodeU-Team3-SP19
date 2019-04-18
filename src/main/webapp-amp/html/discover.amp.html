@@ -44,7 +44,6 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
 </head>
   <body>
 
-
 <amp-state id="ui_hero"><script type="application/json">true</script></amp-state>
 <amp-state id="ui_reset"><script type="application/json">false</script></amp-state>
 <amp-state id="ui_filterPane"><script type="application/json">false</script></amp-state>
@@ -267,6 +266,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
           Discover Local Attractions
         </a>
       <!--/ Search Form -->
+
       <a class="discover-local-discover block center mx-auto mt1 md-hide lg-hide" on="tap:discover-landing-content.scrollTo">
         Explore <svg class="discover-icon" viewBox="0 0 66 100"><path fill="currentColor" d="M33.5 56.172l-18.96-18.1c-1.497-1.43-3.922-1.43-5.418 0a3.539 3.539 0 0 0 0 5.17l21.67 20.687a3.914 3.914 0 0 0 2.708 1.07c.98 0 1.96-.357 2.71-1.07l21.668-20.687a3.541 3.541 0 0 0 0-5.172c-1.496-1.427-3.92-1.427-5.417 0L33.5 56.173z"></path></svg>
       </a>
@@ -626,35 +626,16 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
 <section class="discover-search py4 xs-hide sm-hide relative">
   <div class="px1 md-px2 pb1 relative">
     <h3 class="discover-search-heading discover-spacing-none h1 bold mb2 center">Have a specific destination in mind?</h3>
-
-    <div class="flex justify-center pb2">
-      <div class="discover-input-group flex items-center col-8">
-          <input class="discover-input discover-input-big line-height-2 block col-12 flex-auto rounded-left" type="text" name="query" placeholder="What community would you like to explore?" on="change:AMP.setState({fields_query: event.value})" value="" [value]="fields_query">
-          <span class="discover-input-group-sep discover-border-gray relative z1 block"></span>
-          <a href="discover-results.amp" class="discover-link discover-input discover-input-big line-height-2 link rounded-right nowrap text-decoration-none" on="
-              tap:AMP.setState({
-                  ui_reset: false,
-                  ui_filterPane: false,
-                  query_query: fields_query,
-                  fields_query_edited: false,
-                  query_departure: fields_departure,
-                  fields_departure_edited: false,
-                  query_return: fields_return,
-                  fields_return_edited: false,
-                  query_maxPrice: fields_maxPrice,
-                  fields_maxPrice_edited: false,
-                  query_city: fields_city,
-                  fields_city_edited: false,
-                  query_type: fields_type,
-                  fields_type_edited: false,
-                  query_sort: fields_sort,
-                  fields_sort_edited: false,
-              })
-            ">
-            Find local attractions
-          </a>
-      </div>
-    </div>
+		<form action="results.amp.html">
+			<div class="flex justify-center pb2">
+				<div class="discover-input-group flex items-center col-8">
+		      	  <input type="hidden" name="fromDiscovery" value="true"> 
+			      <input class="discover-input discover-input-big line-height-2 block col-12 flex-auto rounded-left" type="text" name="city_val" placeholder="What community would you like to explore?" value="" [value]="fields_query">
+          			<span class="discover-input-group-sep discover-border-gray relative z1 block"></span>
+			      	<input type="submit" value="Find Local Attractions" href="results.amp.html" class="discover-link discover-input discover-input-big line-height-2 link rounded-right nowrap text-decoration-none">
+			      	</div>
+    			</div>
+		</form>   
   </div>
 </section>
 <!--/ Search -->
