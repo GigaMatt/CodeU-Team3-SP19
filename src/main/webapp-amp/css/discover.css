@@ -21,9 +21,13 @@ h1 {
   font-size: 2em;
   margin: .67em 0
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 60d0a42b5ee5b0ed75fb4f56313a5a29293eb803
 figcaption,figure,main {
-  display: block
-}
+  display: block}
 
 figure {
   margin: 1em 40px
@@ -1323,7 +1327,7 @@ canvas {
 
 body {
   background: #fff;
-  color: #323a43;
+  color:#323a43;
   font-family: Source Sans Pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
   min-width: 100%;
   overflow-x: hidden;
@@ -2400,7 +2404,7 @@ amp-img.circle img {
 }
 
 .travel-discover-panel-subheading,.travel-discover-subheading {
-  color: #8f98a3
+  color: #8f98a3;
 }
 
 .travel-icon {
@@ -2887,7 +2891,7 @@ amp-img.circle img {
 }
 
 .travel-hero-discover {
-  color: #8f98a3;
+  color: white;/*#8f98a3;*/
   cursor: pointer;
   animation: a .4s .45s ease-in-out both
 }
