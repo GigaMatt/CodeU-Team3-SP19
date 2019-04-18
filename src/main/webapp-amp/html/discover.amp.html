@@ -113,23 +113,18 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
       </header>
       
       <!-- Search Form -->
-      <div class="discover-local-search">
-        <label class="discover-input-icon discover-shadow flex col-12 relative rounded">
-          <input class="discover-input discover-input-big discover-input-clear border block col-12 rounded" list="locations" type="text" name="location" placeholder="What community would you like to explore?" 
-          on="
-              change:AMP.setState({
-                fields_query: event.value,
-                fields_query_live: event.value,
-                fields_query_edited: query_query != event.value
-              });
-              input-debounced:AMP.setState({
-                fields_query_live: event.value
-              });
-            " 
-          value="" [value]="fields_query">
-<svg class="discover-icon" viewBox="0 0 74 100"><path fill="currentColor" d="M40.18 95.404A3.944 3.944 0 0 1 37 97a3.944 3.944 0 0 1-3.18-1.596C28.268 87.787 5 54.66 5 34.334 5 17.027 19.327 3 37 3c17.673 0 32 14.028 32 31.333 0 20.327-23.267 53.454-28.82 61.07zM37 14.75c-11.046 0-20 8.768-20 19.583 0 10.816 8.954 19.584 20 19.584s20-8.768 20-19.584c0-5.193-2.107-10.174-5.858-13.847-3.75-3.672-8.838-5.736-14.142-5.736z"></path></svg>        </label>
-      <!-- Filter Results -->
-        <div class="refine">
+
+      <form action="results.amp.html">
+	  	  <div class="discover-local-search">
+      	  <label class="discover-input-icon discover-shadow flex col-12 relative rounded">
+      	  <input type="hidden" name="fromDiscovery" value="true"> 
+	      <input class="discover-input discover-input-big discover-input-clear border block col-12 rounded" list="locations" type="text" name="city_val" placeholder="What community would you like to explore?"
+	          value="" [value]="fields_query">
+
+	    <svg class="discover-icon" viewBox="0 0 74 100"><path fill="currentColor" d="M40.18 95.404A3.944 3.944 0 0 1 37 97a3.944 3.944 0 0 1-3.18-1.596C28.268 87.787 5 54.66 5 34.334 5 17.027 19.327 3 37 3c17.673 0 32 14.028 32 31.333 0 20.327-23.267 53.454-28.82 61.07zM37 14.75c-11.046 0-20 8.768-20 19.583 0 10.816 8.954 19.584 20 19.584s20-8.768 20-19.584c0-5.193-2.107-10.174-5.858-13.847-3.75-3.672-8.838-5.736-14.142-5.736z"></path></svg>        </label>
+
+	    <div class="refine">
+
           <h2>Filter results</h2>
           <div id="searchRadius">
             <h4 >Search Radius</h4>
@@ -242,29 +237,15 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
             </div>
           </div>
       </div>   
-<div class="discover-local-search-dates flex my2 justify-around">
-        <a href="results.amp.html" class="ampstart-btn discover-input-big rounded center bold white block col-12" on="
-            tap:AMP.setState({
-                ui_reset: false,
-                ui_filterPane: false,
-                query_query: fields_query,
-                fields_query_edited: false,
-                query_departure: fields_departure,
-                fields_departure_edited: false,
-                query_return: fields_return,
-                fields_return_edited: false,
-                query_maxPrice: fields_maxPrice,
-                fields_maxPrice_edited: false,
-                query_city: fields_city,
-                fields_city_edited: false,
-                query_type: fields_type,
-                fields_type_edited: false,
-                query_sort: fields_sort,
-                fields_sort_edited: false,
-            })
-          ">
-          Discover Local Attractions
-        </a>
+
+        <div class="discover-local-search-dates flex my2 justify-around">
+	      <input type="submit" value="Discover Local Attractions" href="results.amp.html" class="ampstart-btn discover-input-big rounded center bold white block col-12">
+
+      </form>
+      
+      <!-- Filter Results -->
+        
+      
       <!--/ Search Form -->
 
       <a class="discover-local-discover block center mx-auto mt1 md-hide lg-hide" on="tap:discover-landing-content.scrollTo">
@@ -274,14 +255,6 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
   </div>
 </div></section>
 <!--/ Hero -->
-
-<section class="discover-activities pb4 pt3 relative">
-  </section>
-<section class="discover-activities pb4 pt3 relative">
-  </section>
-<section class="discover-activities pb4 pt3 relative">
-  </section>
-
 
       <div id="discover-landing-content" class="discover-landing-content relative">
 
@@ -296,7 +269,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
   <div class="overflow-scroll">
     <div class="discover-overflow-container">
       <div class="flex justify-center p1 md-px1 mxn1">
-          <a href="discover-results.amp" class="discover-activities-activity discover-type-active mx1" on="
+          <a href="results.amp.html?filter=sports" class="discover-activities-activity discover-type-active mx1" on="
               tap:AMP.setState({
                 ui_viewIndex: 1,
                 fields_type: ['active'],
@@ -312,7 +285,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
               Active
             </p>
           </a>
-          <a href="discover-results.amp" class="discover-activities-activity discover-type-artistic mx1" on="
+          <a href="results.amp.html?filter=art" class="discover-activities-activity discover-type-artistic mx1" on="
               tap:AMP.setState({
                 ui_viewIndex: 1,
                 fields_type: ['artistic'],
@@ -328,7 +301,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
               Artistic
             </p>
           </a>
-          <a href="discover-results.amp" class="discover-activities-activity discover-type-drinks mx1" on="
+          <a href="results.amp.html?filter=drinks" class="discover-activities-activity discover-type-drinks mx1" on="
               tap:AMP.setState({
                 ui_viewIndex: 1,
                 fields_type: ['drinks'],
@@ -344,7 +317,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
               Drinks
             </p>
           </a>
-          <a href="discover-results.amp" class="discover-activities-activity discover-type-fashion mx1" on="
+          <a href="results.amp.html?filter=mall" class="discover-activities-activity discover-type-fashion mx1" on="
               tap:AMP.setState({
                 ui_viewIndex: 1,
                 fields_type: ['fashion'],
@@ -360,7 +333,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
               Fashion
             </p>
           </a>
-          <a href="discover-results.amp" class="discover-activities-activity discover-type-food mx1" on="
+          <a href="results.amp.html?filter=food" class="discover-activities-activity discover-type-food mx1" on="
               tap:AMP.setState({
                 ui_viewIndex: 1,
                 fields_type: ['food'],
@@ -376,7 +349,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
               Food
             </p>
           </a>
-          <a href="discover-results.amp" class="discover-activities-activity discover-type-music mx1" on="
+          <a href="results.amp.html?filter=music" class="discover-activities-activity discover-type-music mx1" on="
               tap:AMP.setState({
                 ui_viewIndex: 1,
                 fields_type: ['music'],
@@ -392,7 +365,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
               Music
             </p>
           </a>
-          <a href="discover-results.amp" class="discover-activities-activity discover-type-nature mx1" on="
+          <a href="results.amp.html?filter=hiking" class="discover-activities-activity discover-type-nature mx1" on="
               tap:AMP.setState({
                 ui_viewIndex: 1,
                 fields_type: ['nature'],
@@ -408,7 +381,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
               Nature
             </p>
           </a>
-          <a href="discover-results.amp" class="discover-activities-activity discover-type-nightlife mx1" on="
+          <a href="results.amp.html?filter=nightlife" class="discover-activities-activity discover-type-nightlife mx1" on="
               tap:AMP.setState({
                 ui_viewIndex: 1,
                 fields_type: ['nightlife'],
@@ -424,7 +397,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
               Nightlife
             </p>
           </a>
-          <a href="discover-results.amp" class="discover-activities-activity discover-type-tours mx1" on="
+          <a href="results.amp.html?filter=tourist+attractions" class="discover-activities-activity discover-type-tours mx1" on="
               tap:AMP.setState({
                 ui_viewIndex: 1,
                 fields_type: ['tours'],
@@ -440,7 +413,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
               Tours
             </p>
           </a>
-          <a href="discover-results.amp" class="discover-activities-activity discover-type-water mx1" on="
+          <a href="results.amp.html?filter=water+activities" class="discover-activities-activity discover-type-water mx1" on="
               tap:AMP.setState({
                 ui_viewIndex: 1,
                 fields_type: ['water'],
@@ -565,10 +538,11 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
   <header class="max-width-2 mx-auto px1 md-px2 relative">
     <h3 class="discover-featured-heading h1 bold line-height-2 mb2 center">Featured Communities</h3>
   </header>
+
   <div class="max-width-3 mx-auto relative">
     <div class="discover-featured-grid flex flex-wrap items-stretch">
       <div class="col-12 md-col-6 flex items-stretch flex-auto">
-        <a href="discover-results.amp" class="discover-featured-tile flex flex-auto relative discover-featured-color-blue" on="tap:AMP.setState({fields_query: 'Las Cruces', query_query: 'Las Cruces'})">
+        <a href="results.amp.html?fromDiscovery=true&city_val=Las+Cruces" class="discover-featured-tile flex flex-auto relative discover-featured-color-blue" on="tap:AMP.setState({fields_query: 'Las Cruces', query_query: 'Las Cruces'})">
           <amp-img class="discover-object-cover flex-auto" layout="responsive" width="336" height="507" src="../img/travel/city/las-cruces-featured-2.jpg"></amp-img>
           <div class="discover-featured-overlay absolute z1 center top-0 right-0 bottom-0 left-0 white p2">
             <div class="discover-featured-tile-heading caps bold line-height-2 h3">Las Cruces, NM</div>
@@ -576,14 +550,14 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
           </div>
         </a>
         <div class="flex flex-column items-stretch flex-auto">
-          <a href="discover-results.amp" class="discover-featured-tile flex flex-auto relative discover-featured-color-cyan" on="tap:AMP.setState({fields_query: 'El Paso', query_query: 'El Paso'})">
+          <a href="results.amp.html?fromDiscovery=true&city_val=El+Paso" class="discover-featured-tile flex flex-auto relative discover-featured-color-cyan" on="tap:AMP.setState({fields_query: 'El Paso', query_query: 'El Paso'})">
             <amp-img class="discover-object-cover flex-auto" layout="responsive" width="264" height="246" src="../img/travel/city/el-paso-featured-3.jpg"></amp-img>
             <div class="discover-featured-overlay absolute z1 center top-0 right-0 bottom-0 left-0 white p2">
               <div class="discover-featured-tile-heading bold caps line-height-2 h3">El Paso, TX</div>
               <div class="h5">5296 local activities</div>
             </div>
           </a>
-          <a href="discover-results.amp" class="discover-featured-tile flex flex-auto pointer relative discover-featured-color-orange" on="tap:AMP.setState({fields_query: 'Oxnard', query_query: 'Oxnard'})">
+          <a href="results.amp.html?fromDiscovery=true&city_val=Oxnard" class="discover-featured-tile flex flex-auto pointer relative discover-featured-color-orange" on="tap:AMP.setState({fields_query: 'Oxnard', query_query: 'Oxnard'})">
             <amp-img class="discover-object-cover flex-auto" layout="responsive" width="264" height="264" src="../img/travel/city/oxnard-featured-1.jpg"></amp-img>
             <div class="discover-featured-overlay absolute z1 center top-0 right-0 bottom-0 left-0 white p2">
               <div class="discover-featured-tile-heading bold caps line-height-2 h3">Oxnard, CA</div>
@@ -592,16 +566,18 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
           </a>
         </div>
       </div>
+
+
       <div class="col-12 md-col-6 flex items-stretch flex-auto">
         <div class="flex flex-column items-stretch flex-auto">
-          <a href="discover-results.amp" class="discover-featured-tile flex flex-auto pointer relative discover-featured-color-purple" on="tap:AMP.setState({fields_query: 'Sahuarita', query_query: 'Sahuarita'})">
+          <a href="results.amp.html?fromDiscovery=true&city_val=Sahuarita" class="discover-featured-tile flex flex-auto pointer relative discover-featured-color-purple" on="tap:AMP.setState({fields_query: 'Sahuarita', query_query: 'Sahuarita'})">
             <amp-img class="discover-object-cover flex-auto" layout="responsive" width="276" height="207" src="../img/travel/city/sahuarita-featured-1.jpg"></amp-img>
             <div class="discover-featured-overlay absolute z1 center top-0 right-0 bottom-0 left-0 white p2">
               <div class="discover-featured-tile-heading caps bold line-height-2 h3">Sahuarita, AZ</div>
               <div class="h5">9522 local activities</div>
             </div>
           </a>
-          <a href="discover-results.amp" class="discover-featured-tile flex flex-auto relative discover-featured-color-cornflower" on="tap:AMP.setState({fields_query: 'Wakita', query_query: 'Wakita'})">
+          <a href="results.amp.html?fromDiscovery=true&city_val=Wakita" class="discover-featured-tile flex flex-auto relative discover-featured-color-cornflower" on="tap:AMP.setState({fields_query: 'Wakita', query_query: 'Wakita'})">
             <amp-img class="discover-object-cover flex-auto" layout="responsive" width="264" height="286" src="../img/travel/city/wakita-featured-2.jpg"></amp-img>
             <div class="discover-featured-overlay absolute z1 center top-0 right-0 bottom-0 left-0 white p2">
               <div class="discover-featured-tile-heading caps bold line-height-2 h3">Wakita, OK</div>
@@ -609,7 +585,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
             </div>
           </a>
         </div>
-        <a href="discover-results.amp" class="discover-featured-tile flex flex-auto relative discover-featured-color-teal" on="tap:AMP.setState({fields_query: 'Juarez', query_query: 'Juarez'})">
+        <a href="results.amp.html?fromDiscovery=true&city_val=Cd+Juarez" class="discover-featured-tile flex flex-auto relative discover-featured-color-teal" on="tap:AMP.setState({fields_query: 'Juarez', query_query: 'Juarez'})">
           <amp-img class="discover-object-cover flex-auto" layout="responsive" width="312" height="507" src="../img/travel/city/juarez-featured-1.jpg"></amp-img>
           <div class="discover-featured-overlay absolute z1 center top-0 right-0 bottom-0 left-0 white p2">
             <div class="discover-featured-tile-heading caps bold h3">Ciudad Juarez, MX</div>
