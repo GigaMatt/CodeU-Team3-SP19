@@ -37,17 +37,22 @@
       var locs;
 
         //maybe works with servlet
-      /*
+      
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             var data = xhr.responseText;
+            console.log(this.response)
+            console.log(xhr.responseText)
+            console.log(JSON.parse(this.responseText))
             alert(data);
+            //this data should display as a json and we can work with that
         }
       }
-      xhr.open('GET', 'MessageFeedServlet.java', true);
+      // need to change messagefeed servlet to a https page
+      xhr.open('GET', 'http://localhost:8080/MessageFeedServlet.java', true);
       xhr.send(null);
-      */
+      
       async function initMap() {
         urlParams = new URLSearchParams(window.location.search);
         fromDiscovery = urlParams.get('fromDiscovery');
