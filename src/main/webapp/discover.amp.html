@@ -133,12 +133,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
                 <input type="radio"
                   id="fivemi"
                   name="radiusFilter"
-                  value="fivemi"
-                  on="change:AMP.setState({
-                    products: {
-                    searchRadius: event.checked == true ? 'fivemi' : ''
-                    }
-                    })" >
+                  value="fivemi">
                     5 miles </label>
             </div>
             <div>
@@ -146,11 +141,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
                 <input type="radio"
                   id="tenmi"
                   name="radiusFilter"
-                  value="tenmi"
-                  on="change:AMP.setState({
-                    products: {
-                    searchRadius: event.checked == true ? 'tenmi' : '',                    }
-                    })"> 10 miles </label>
+                  value="tenmi"> 10 miles </label>
             </div>
             <div>
               <label>
@@ -158,12 +149,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
                   id="twentyfivemi"
                   name="radiusFilter"
                   value="twentyfivemi"
-                  on="change:AMP.setState({
-                    products: {
-                    searchColor: event.checked == true ? 'twentyfivemi' : '',
-                    <!-- listSrc: '/samples_templates/products?searchProduct='+ products.searchProduct +'&sort='+ products.sortChoiceValue +'&searchColor='+ (event.checked == true ? 'twentyfivemi' : '') +'&_=RANDOM'
-                    } --!>
-                    })"> 25 miles </label>
+                  > 25 miles </label>
             </div>
             <div>
               <label>
@@ -171,12 +157,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
                   id="none"
                   name="radiusFilter"
                   value="none"
-                  on="change:AMP.setState({
-                    products: {
-                    searchColor: event.checked == true ? 'all' : '',
-                    <!--listSrc: '/samples_templates/products?searchProduct='+ products.searchProduct +'&sort='+ products.sortChoiceValue +'&searchColor='+ (event.checked == true ? 'all' : '') +'&_=RANDOM'
-                    } --!>
-                    })"> none </label>
+                  > none </label>
             </div>
           </form>
           </div>
@@ -188,12 +169,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
                   id="cheap"
                   name="priceFilter"
                   value="cheap"
-                  on="change:AMP.setState({
-                    products: {
-                    searchColor: event.checked == true ? 'cheap' : '',
-                    <!-- listSrc: '/samples_templates/products?searchProduct='+ products.searchProduct +'&sort='+ products.sortChoiceValue +'&searchColor='+ (event.checked == true ? 'yellow' : '') +'&_=RANDOM'
-                    } --!>
-                    })"> $ </label>
+                  > $ </label>
             </div>
             <div>
               <label>
@@ -201,12 +177,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
                   id="averagecost"
                   name="priceFilter"
                   value="averagecost"
-                  on="change:AMP.setState({
-                    products: {
-                    searchColor: event.checked == true ? 'averagecost' : '',
-                    <!-- listSrc: '/samples_templates/products?searchProduct='+ products.searchProduct +'&sort='+ products.sortChoiceValue +'&searchColor='+ (event.checked == true ? 'tenmi' : '') +'&_=RANDOM'
-                    } --!>
-                    })"> $$ </label>
+                  > $$ </label>
             </div>
 
             <div>
@@ -215,12 +186,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
                   id="expensive"
                   name="priceFilter"
                   value="expensive"
-                  on="change:AMP.setState({
-                    products: {
-                    searchColor: event.checked == true ? 'expensive' : '',
-                    <!-- listSrc: '/samples_templates/products?searchProduct='+ products.searchProduct +'&sort='+ products.sortChoiceValue +'&searchColor='+ (event.checked == true ? 'expensive' : '') +'&_=RANDOM'
-                    } --!>
-                    })"> $$$ </label>
+                  > $$$ </label>
             </div>
             <div>
               <label>
@@ -228,12 +194,7 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
                   id="veryexpensive"
                   name="priceFilter"
                   value="veryexpensive"
-                  on="change:AMP.setState({
-                    products: {
-                    searchColor: event.checked == true ? 'all' : '',
-                    <!--listSrc: '/samples_templates/products?searchProduct='+ products.searchProduct +'&sort='+ products.sortChoiceValue +'&searchColor='+ (event.checked == true ? 'all' : '') +'&_=RANDOM'
-                    } --!>
-                    })"> $$$$ </label>
+                  > $$$$ </label>
             </div>
           </div>
       </div>   

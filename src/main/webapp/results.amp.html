@@ -36,12 +36,52 @@
       var type;
       var locs;
 
-
+        //maybe works with servlet
+      
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            var data = xhr.responseText;
+            console.log(this.response)
+            console.log(xhr.responseText)
+            console.log(JSON.parse(this.responseText))
+            alert(data);
+            //this data should display as a json and we can work with that
+        }
+      }
+      // need to change messagefeed servlet to a https page
+      xhr.open('GET', 'MessageFeedServlet.java', true);
+      xhr.send(null);
+      
       async function initMap() {
         urlParams = new URLSearchParams(window.location.search);
         fromDiscovery = urlParams.get('fromDiscovery');
         locs = urlParams.get('city_val');
         type = urlParams.get('filter');
+
+        /*
+      // search yelp
+      const yelp = requireJS('yelp-fusion');
+
+      // Place holder for Yelp Fusion's API Key. Grab them
+      // from https://www.yelp.com/developers/v3/manage_app
+      const apiKey = 'nHhrlF_fSJVeSago5RBBPT4Pm_My-QczgCQl7f1d0jMaicWX4eHG6RefrcuAn_HhXRp3sm-c1DR7M-iK7g1M7HCMklsQPQB4KJvh5w0qzv-T6dIDNifo_mxtam-YXHYx';
+
+      const searchRequest = {
+        term: type,
+        location: locs
+      };
+      const client = yelp.client(apiKey);
+
+      client.search(searchRequest).then(response => {
+        const firstResult = response.jsonBody.businesses[0];
+        const prettyJson = JSON.stringify(firstResult, null, 4);
+        console.log(prettyJson);
+      }).catch(e => {
+        console.log(e);
+      });
+*/
+
         service = new google.maps.places.PlacesService(map);
         currLoc = new google.maps.LatLng(37.4219999,-122.0862515);
         if (fromDiscovery) {
