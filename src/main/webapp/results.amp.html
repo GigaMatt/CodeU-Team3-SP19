@@ -35,6 +35,7 @@
       var currLoc;
       var type;
       var locs;
+      var filtersValues ={};
 
         //maybe works with servlet
       
@@ -188,6 +189,27 @@
           infoWindow.open(map);
         }
       }
+
+      function toggleFilter(filter) {
+        if (filtersValues[filter]) {
+          filtersValues[filter]=false;
+        } else {
+          filtersValues[filter]=true;
+        }
+      }
+
+      function resetFilters() {
+        filtersValues = {};
+      }
+
+      function getFilters(){
+        for (let[key, value] of Object.entries(filtersValues)) {
+          if (value) {
+            requestNearbySearch(key);
+          }
+        }
+      } 
+
     </script>
 
   <style amp-boilerplate="">body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate="">body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -518,7 +540,7 @@
   " [selected]="fields_type">
   <ul class="list-reset">
       <!-- <div class=""> -->
-        <li option="active" class="col col-6 travel-type-active">
+        <li option="active" class="col col-6 travel-type-active"  id="active_filter">
           <div class="travel-type-selector-inactive flex relative items-center justify-between nowrap">
             <span class="travel-type-selector-content nowrap">
 
@@ -534,7 +556,7 @@
         </li>
       <!-- </div> -->
       <!-- <div class=""> -->
-        <li option="artistic" class="col col-6 travel-type-artistic">
+        <li option="artistic" class="col col-6 travel-type-artistic" id="artistic_filter">
           <div class="travel-type-selector-inactive flex relative items-center justify-between nowrap">
             <span class="travel-type-selector-content nowrap">
 
@@ -550,7 +572,7 @@
         </li>
       <!-- </div> -->
       <!-- <div class=""> -->
-        <li option="drinks" class="col col-6 travel-type-drinks">
+        <li option="drinks" class="col col-6 travel-type-drinks"  id="drinks_filter">
           <div class="travel-type-selector-inactive flex relative items-center justify-between nowrap">
             <span class="travel-type-selector-content nowrap">
 
@@ -566,7 +588,7 @@
         </li>
       <!-- </div> -->
       <!-- <div class=""> -->
-        <li option="fashion" class="col col-6 travel-type-fashion">
+        <li option="fashion" class="col col-6 travel-type-fashion"  id="fashion_filter">
           <div class="travel-type-selector-inactive flex relative items-center justify-between nowrap">
             <span class="travel-type-selector-content nowrap">
 
@@ -582,7 +604,7 @@
         </li>
       <!-- </div> -->
       <!-- <div class=""> -->
-        <li option="food" class="col col-6 travel-type-food">
+        <li option="food" class="col col-6 travel-type-food"  id="food_filter">
           <div class="travel-type-selector-inactive flex relative items-center justify-between nowrap">
             <span class="travel-type-selector-content nowrap">
 
@@ -598,7 +620,7 @@
         </li>
       <!-- </div> -->
       <!-- <div class=""> -->
-        <li option="music" class="col col-6 travel-type-music">
+        <li option="music" class="col col-6 travel-type-music"  id="music_filter">
           <div class="travel-type-selector-inactive flex relative items-center justify-between nowrap">
             <span class="travel-type-selector-content nowrap">
 
@@ -614,7 +636,7 @@
         </li>
       <!-- </div> -->
       <!-- <div class=""> -->
-        <li option="nature" class="col col-6 travel-type-nature">
+        <li option="nature" class="col col-6 travel-type-nature"  id="nature_filter">
           <div class="travel-type-selector-inactive flex relative items-center justify-between nowrap">
             <span class="travel-type-selector-content nowrap">
 
@@ -630,7 +652,7 @@
         </li>
       <!-- </div> -->
       <!-- <div class=""> -->
-        <li option="nightlife" class="col col-6 travel-type-nightlife">
+        <li option="nightlife" class="col col-6 travel-type-nightlife"  id="nightlife_filter">
           <div class="travel-type-selector-inactive flex relative items-center justify-between nowrap">
             <span class="travel-type-selector-content nowrap">
 
@@ -646,7 +668,7 @@
         </li>
       <!-- </div> -->
       <!-- <div class=""> -->
-        <li option="tours" class="col col-6 travel-type-tours">
+        <li option="tours" class="col col-6 travel-type-tours"  id="tours_filter">
           <div class="travel-type-selector-inactive flex relative items-center justify-between nowrap">
             <span class="travel-type-selector-content nowrap">
 
@@ -662,7 +684,7 @@
         </li>
       <!-- </div> -->
       <!-- <div class=""> -->
-        <li option="water" class="col col-6 travel-type-water">
+        <li option="water" class="col col-6 travel-type-water"  id="water_filter">
           <div class="travel-type-selector-inactive flex relative items-center justify-between nowrap">
             <span class="travel-type-selector-content nowrap">
 
@@ -730,7 +752,7 @@
       </div>
       <div class="travel-border-gray mx1 md-mx2 border-top"></div>
       <div class="max-width-3 mx-auto px1 md-px2 py1 center">
-        <button class="travel-filters-reset-btn ampstart-btn rounded bold" on="
+      <button id="reset_filters" class="travel-filters-reset-btn ampstart-btn rounded bold" on="
           tap:AMP.setState({
               ui_reset: true,
               query_maxPrice: fields_maxPrice_initial,
@@ -747,7 +769,7 @@
         ">
           Reset Filters
         </button>
-        <button class="travel-filters-apply-btn ampstart-btn rounded bold" disabled="" [disabled]="!fields_maxPrice_edited && !fields_city_edited && !fields_type_edited && !ui_reset" on="
+        <button id="apply_filters" class="travel-filters-apply-btn ampstart-btn rounded bold" disabled="" [disabled]="!fields_maxPrice_edited && !fields_city_edited && !fields_type_edited && !ui_reset" on="
             tap:AMP.setState({
                 ui_reset: false,
                 ui_filterPane: false,
@@ -923,6 +945,20 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Vlck6aVee3BZB89cNHspl_DxQglae_Y&libraries=places&callback=initMap" async defer></script>
 <!--/ maps showing results -->
 
+<script>
+  document.getElementById("active_filter").addEventListener("click", function(){toggleFilter("active_filter")});
+  document.getElementById("artistic_filter").addEventListener("click", function(){toggleFilter("artistic_filter")});
+  document.getElementById("drinks_filter").addEventListener("click", function(){toggleFilter("drinks_filter")});
+  document.getElementById("fashion_filter").addEventListener("click", function(){toggleFilter("fashion_filter")});
+  document.getElementById("food_filter").addEventListener("click", function(){toggleFilter("food_filter")});
+  document.getElementById("music_filter").addEventListener("click", function(){toggleFilter("music_filter")});
+  document.getElementById("nature_filter").addEventListener("click", function(){toggleFilter("nature_filter")});
+  document.getElementById("nightlife_filter").addEventListener("click", function(){toggleFilter("nightlife_filter")});
+  document.getElementById("tours_filter").addEventListener("click", function(){toggleFilter("tours_filter")});
+  document.getElementById("water_filter").addEventListener("click", function(){toggleFilter("water_filter")});
+  document.getElementById("apply_filters").addEventListener("click", getFilters);
+  document.getElementById("reset_filters").addEventListener("click", resetFilters);
+</script>
 
   </body>
 </html>
