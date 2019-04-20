@@ -23,7 +23,7 @@ import com.google.codeu.api.YelpQuery;
 /**
  * Handles fetching all messages for the public feed.
  */
-@WebServlet("/feed")
+@WebServlet("/resultsjava")
 public class MessageFeedServlet extends HttpServlet{
   
   private Datastore datastore;
@@ -44,21 +44,20 @@ public class MessageFeedServlet extends HttpServlet{
     response.setCharacterEncoding("UTF-8"); 
     List<Message> messages = datastore.getAllMessages();
     Gson gson = new Gson();
-    String term = request.getParameter("term");
-    String location = request.getParameter("location");
+    //String term = request.getParameter("filter");
+    //String location = request.getParameter("city_val");
     HashMap<String, String> paramMap = new HashMap<String, String>();
-    Enumeration<String> paramNames = request.getParameterNames();
-    while(paramNames.hasMoreElements()) {
-        String currentName = paramNames.nextElement();
-        paramMap.put(currentName,request.getParameter(currentName));
+    PrintWriter out = response.getWriter();
+    for(Map.Entry<String, String[]> entry : request.getParameterMap().entrySet()) {
+        String currentName = entry.getKey();
+        paramMap.put(currentName, entry.getValue()[0]);
     }
     YelpQuery query = new YelpQuery(paramMap);
     String json = "";
     try {
-      json = query.createQuery();//gson.toJson(messages);
+      json = query.createQuery();
     } catch (URISyntaxException e) { response.getOutputStream().println("aaa");}
-    //response.getOutputStream().println(json);
-    PrintWriter out = response.getWriter();
+    
     out.println(json);
    }
 }

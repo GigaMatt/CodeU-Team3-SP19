@@ -2,7 +2,7 @@
 <!doctype html>
 <html ⚡="">
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Vlck6aVee3BZB89cNHspl_DxQglae_Y&libraries=places"></script>
-    
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <head>
 
   <meta charset="utf-8">
@@ -38,8 +38,9 @@
 
         //maybe works with servlet
       
-      var xhr = new XMLHttpRequest();
+      /*var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function() {
+        console.log(xhr.readyState)
         if (xhr.readyState == 4) {
             var data = xhr.responseText;
             console.log(this.response)
@@ -50,8 +51,12 @@
         }
       }
       // need to change messagefeed servlet to a https page
-      xhr.open('GET', 'MessageFeedServlet.java', true);
-      xhr.send(null);
+      //xhr.open('GET', 'MessageFeedServlet.java', true);
+      xhr.send(null);*/
+ 
+      $.get("/resultsjava", function(resp) {
+           alert(JSON.stringify( resp, null, 2));
+      });
       
       async function initMap() {
         urlParams = new URLSearchParams(window.location.search);
