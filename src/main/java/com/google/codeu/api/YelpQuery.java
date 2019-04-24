@@ -2,6 +2,8 @@ package com.google.codeu.api;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.HashSet;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -36,18 +38,59 @@ public class YelpQuery {
   private String apiKey;
   private Map<String, String> params;
 
+
+  private Set<String> yelpParams;
+  private Map<String, String> priceMap;
+  private Map<String, String> distMap;
+
   public YelpQuery() throws IOException {
-    this.apiKey = readFile(new File("api.key").getAbsolutePath());
+    this.apiKey = "nHhrlF_fSJVeSago5RBBPT4Pm_My-QczgCQl7f1d0jMaicWX4eHG6RefrcuAn_HhXRp3sm-c1DR7M-iK7g1M7HCMklsQPQB4KJvh5w0qzv-T6dIDNifo_mxtam-YXHYx";//readFile(new File("api.key").getAbsolutePath());
     this.params = new HashMap<String, String>() {{ 
       put("location", "Chicago");
       put("term", "ice cream");
     }};
+
+    this.yelpParams = new HashSet<String>() {{
+      add("term"); add("location"); add("latitude");
+      add("categories"); add("radius"); add("longitude");
+      add("locale"); add("limit"); add("price");
+      add("sort_by"); add("offset"); add("open_now");
+      add("open_at"); add("attributes");
+    }};
+    this.priceMap = new HashMap<String, String>() {{
+      put("cheap", "1"); put("averagecost", "2");
+      put("expensive", "3"); put("veryexpensive", "4");
+    }};
+
+    this.distMap = new HashMap<String, String>() {{
+      put("fivemi", "8046"); put("tenmi", "16093");
+      put("twentyfivemi", "32186"); put("none", "40000");
+    }};
   }
  
   public YelpQuery(HashMap<String, String> params) throws IOException {
-    this.apiKey = readFile(new File("api.key").getAbsolutePath());
+    this.apiKey = "nHhrlF_fSJVeSago5RBBPT4Pm_My-QczgCQl7f1d0jMaicWX4eHG6RefrcuAn_HhXRp3sm-c1DR7M-iK7g1M7HCMklsQPQB4KJvh5w0qzv-T6dIDNifo_mxtam-YXHYx";//readFile(new File("api.key").getAbsolutePath());
 
     this.params = params;
+    for(String name : params.keySet()) {
+        System.out.println(name);
+    }
+    this.yelpParams = new HashSet<String>() {{
+      add("term"); add("location"); add("latitude");
+      add("categories"); add("radius"); add("longitude");
+      add("locale"); add("limit"); add("price");
+      add("sort_by"); add("offset"); add("open_now");
+      add("open_at"); add("attributes");
+    }};
+    this.priceMap = new HashMap<String, String>() {{
+      put("cheap", "1"); put("averagecost", "2");
+      put("expensive", "3"); put("veryexpensive", "4");
+    }};
+
+    this.distMap = new HashMap<String, String>() {{
+      put("fivemi", "8046"); put("tenmi", "16093");
+      put("twentyfivemi", "32186"); put("none", "40000");
+    }};
   }
 
   // just uses basic business search; https://www.yelp.com/developers/documentation/v3/business_search
@@ -58,9 +101,25 @@ public class YelpQuery {
     builder.setScheme("https").setHost("api.yelp.com").setPath("/v3/businesses/search");
     // Adding parameters to search string: TODO error checking. note, we need a location here in the parameters at least.
     for(Map.Entry<String, String> entry : this.params.entrySet()) {
-      builder.setParameter(entry.getKey(), entry.getValue());
+      String currentKey = entry.getKey();
+      String currentValue = entry.getValue();
+      if(this.yelpParams.contains(currentKey)) {
+        builder.setParameter(currentKey, currentValue);
+      }
+      else if(currentKey.equals("priceFilter")) {
+        builder.setParameter("price", this.priceMap.get(currentValue));
+      }
+      else if(currentKey.equals("radiusFilter")) {
+        builder.setParameter("radius", this.distMap.get(currentValue));
+      }
+      else if(currentKey.equals("filter")) {
+        builder.setParameter("term", currentValue);
+      }
+      else if(currentKey.equals("city_val")) {
+        builder.setParameter("location", currentValue);
+      }
     }
-    
+    //builder.setParameter("location", "Chicago"); 
     HttpGet httpget = new HttpGet(builder.build());
     httpget.setHeader("Authorization", "Bearer " + this.apiKey);
     httpget.setHeader("Accept", "application/json");
