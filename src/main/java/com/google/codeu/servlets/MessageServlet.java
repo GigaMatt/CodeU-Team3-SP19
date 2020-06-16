@@ -70,18 +70,39 @@ public class MessageServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+    String user, user_text, regex_string, replacement_string, images_replaced_text, recipient;
+
     UserService userService = UserServiceFactory.getUserService();
     if (!userService.isUserLoggedIn()) {
       response.sendRedirect("/index.html");
       return;
     }
 
-    String user = userService.getCurrentUser().getEmail();
-    String text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
-    String recipient = request.getParameter("recipient");
+    user = userService.getCurrentUser().getEmail();
+    user_text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
+    recipient = request.getParameter("recipient");
 
-    Message message = new Message(user, text, recipient);
+    regex_string = "(https?://\\S+\\.(png|jpg))";
+    replacement_string = "<img src=\"$1\" />";
+    images_replaced_text = user_text.replaceAll(regex_string, replacement_string);
+
+    /**
+     * KNOWN ISSUE: WHEN ATTEMPTING TO POST IMAGES, THE IMAGE NEVER POSTS
+     *              TO THE USER'S PAGE. THIS MIGHT BE A CONFICT WITH CODE
+     *              WRITTEN BY ALEX LAST WEEK
+     * 
+     * @ALEX:       ISSUE IS WITH THE NEXT 2-3 LINES OF CODE. SEND HELP PLS.
+     *              PLEASE HELP DEBUG.            */
+
+    Message message = new Message(user, images_replaced_text, recipient);//, recipient);
     datastore.storeMessage(message);
+    /**
+     * @Alex CodeU tutorial calls for 
+     *        Message message = new Message(user, images_replaced_text);
+     *        That is, only passing 2 arguments, but it wont run unless
+     *        we pass 3 arguments. Thoughts? Did you see any issues related
+     *        to this when creating the Message.java class?
+     */
 
     response.sendRedirect("/user-page.html?user=" + recipient);
   }
